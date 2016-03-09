@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ul,
+    ol,
+    dl,
+    dt,
+    dd,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul,
+    ol {
+        list-style: none;
+    }
+    
+    i,
+    em,
+    label {
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    
+    .fl {
+        float: left;
+    }
+    
+    .fr {
+        float: right;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    a {
+        color: #fff;
+    }
+    
+    body {
+        color: #fff;
+        font: 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    #header {
+        background: #333;
+    }
+    
+    .row {
+        height: 900px;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+    #header .logo {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: url(/logo.jpg) no-repeat 50%;
+        text-indent: -200%;
+        overflow: hidden;
+    }
+    
+    #header .nav {
+        display: inline-block;
+    }
+    
+    #header .meta {
+        margin-top: 65px;
+    }
+    
+    .one {
+        position: relative;
+        background-image: url('tlwlr.jpg');
+    }
+    
+    .one:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 2555, 255, .5);
+    }
+    
+    .one .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 30px;
+        border-top: 4px solid #fcc;
+        background: rgba(39, 40, 50, .5);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+    }
+    
+    .one .tip span+span:before{
+        content:'•';
+        margin: 20px;
+        color: #ff0
+    }
+
+    .two {
+        background: #fcc;
+    }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <section class="meta fr"><a href="javascript:;">登录</a><a href="tel:400-371-888">400-371-888</a></section>
+        <a href="javascript:;" class="logo">啊哈</a>
+        <nav class="nav">
+            <a href="javascript:;">首页</a>
+            <a href="javascript:;">服务流程</a>
+            <a href="javascript:;">关于我们</a>
+            <a href="javascript:;">意见反馈</a>
+        </nav>
+    </header>
+    <div class="main">
+        <article class="one row text-center">
+            <div class="title">
+                <h1>啊哈上门养车</h1>
+                <p class="slogan">什么什么</p>
+            </div>
+            <section class="content">
+                <h2>请选择要保养的车型</h2>
+                <h4><span>热门搜索品牌</span>
+                <a href="javascript:;">大众</a>
+                <a href="javascript:;">大众</a>
+                <a href="javascript:;">大众</a>
+                <a href="javascript:;">大众</a>
+                <a href="javascript:;">大众</a>
+                <a href="javascript:;">大众</a>
+                </h4>
+            </section>
+            <section class="tip"><span>随</span>
+                <span>时</span>
+                <span>随</span>
+                <span>地</span>
+                <span>养</span>
+                <span>车</span></section>
+        </article>
+        <article class="two row">
+            <section class="content"></section>
+        </article>
+        <article class="three row">
+            <section class="content"></section>
+        </article>
+    </div>
+    <footer id="footer"></footer>
+</body>
+
+</html>

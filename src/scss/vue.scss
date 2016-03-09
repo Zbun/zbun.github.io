@@ -1,0 +1,90 @@
+@import "base/baseSCSS";
+@import "base/baseMobile";
+body{
+	max-width: 800px;
+	
+	padding: 20px;
+	margin: 0 auto;
+	@include basePC;
+	background:#66BAB7 url(/src/images/ashes.png) ;
+	color: #fff;
+	counter-reset: rows;
+	color: #f00;
+
+}
+h3{
+	padding-top: 10px;
+	border-top: 1px dashed #fff;
+	text-shadow:1px 1px #34939C;
+}
+
+.row{
+counter-increment: rows;
+>h3{
+	color:#0C5D59;
+	&:before{
+		content:counter(rows)'. ';
+	}
+}
+	>ol{
+	//list-style:decimal inside;
+	margin-left: 1em;
+	counter-reset: lists;
+	>li{
+		counter-increment: lists;
+		h4{
+			padding: 5px 0;
+			text-shadow:1px 1px #34939C;
+			&:before{
+				content:counter(rows)'-'counter(lists) '. ';
+			}
+		}
+		ol{
+			margin-left: 1em;
+			counter-reset: listsIn;
+			li{
+				h5{
+					counter-increment: listsIn;
+					&:before{
+						content:counter(rows)'-'counter(lists)'-'counter(listsIn)'. ';
+					}
+				}
+			}
+		}
+	}
+}
+}
+
+.prize{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	.item{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 100px;
+		transform:translate(-50%,-50%);
+		background:darkcyan;
+		background:rgba(0,0,0,0);
+		@for $i from 1 to 6{
+			&:nth-child(#{$i}){
+				transform:translate(-50%,-50%) rotate($i * -60deg);
+				z-index:$i;
+			}
+		}
+		&:nth-child(odd){
+			background:slategray;
+		}
+	}
+}
+
+.drop-down{
+	@include drop-down;
+}
+select{
+	//-webkit-appearance:none;
+	width:calc(300px - 5em)!important;
+	width:100px;
+}

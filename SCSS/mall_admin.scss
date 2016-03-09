@@ -1,0 +1,126 @@
+@charset "utf-8";
+@import 'base/basePC';
+@import '_dialog';
+@import '_pagination';
+@import '_progress';
+@import '_set';
+body {
+    min-width: 1080px;
+    background: #F0F0F0;
+}
+
+.btn {
+    margin-right: 8px;
+    padding: 0 1.25em;
+    min-width: 4.5em;
+}
+
+.side {
+    >header {
+        border-bottom: 1px solid $color-border;
+        line-height: 38px;
+        padding: 0 10px;
+        .content-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        a {
+            font-size: 12px;
+        }
+        i.fa-plus {
+            color: $color-primary;
+            padding: 1px 3px;
+            border: 1px solid $color-primary;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+        }
+    }
+}
+
+.cat {
+    font-size: 14px;
+}
+
+.order-field {
+    position: relative;
+    min-width: 100px;
+    padding-left: 1em;
+    .action-edit {
+        visibility: hidden;
+    }
+    .edit-field {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+        input {
+            max-width: 5em;
+        }
+    }
+    &.isediting {
+        .edit-field {
+            display: block;
+        }
+        .action-edit {
+            visibility: hidden!important;
+        }
+    }
+}
+
+.data {
+    table {
+        tr {
+            .price,
+            .action-field {
+                white-space: nowrap;
+            }
+            &:hover {
+                .order-field {
+                    .action-edit {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.info-list {
+    >.item {
+        >.content.contact {
+            >.item {
+                .phone {
+                    width: 160px;
+                    margin-right: 16px;
+                    margin-bottom: 10px;
+                }
+                .address {
+                    width: 350px;
+                    margin-right: 8px;
+                }
+            }
+        }
+        .info-product {
+            >table {
+                tbody {
+                    td {
+                        border-top: 1px solid $color-border;
+                    }
+                }
+            }
+        }
+    }
+    &.thin {
+        >.item {
+            >.content {
+                padding: 20px 40px;
+                >.action-field {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}

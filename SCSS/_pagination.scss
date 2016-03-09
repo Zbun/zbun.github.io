@@ -1,0 +1,50 @@
+@import 'base/_variables';
+.pagination {
+	display: inline-block;
+    >li {
+        display: table-cell;
+        >a {
+            display: inline-block;
+        	position: relative;
+            min-width: 32px;
+            padding: 0 12px;
+            margin-left: -1px;
+            border: 1px solid #e0e0e0;
+            line-height: 30px;
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+            &:hover {
+                background: #eee;
+            }
+        }
+        &:first-child {
+            >a {
+                border-radius: $border-radius 0 0 $border-radius;
+            }
+        }
+        &:last-child {
+            >a {
+                border-radius: 0 $border-radius $border-radius 0;
+            }
+        }
+        &.active{
+        	>a{
+        		color: #fff;
+        		background:$color-primary;
+        		 border-color: #049fe1;
+        		 z-index: 5;
+        	}
+        }
+    }
+    >.disabled {
+    	pointer-events:auto;
+        >a {
+            color: #ccc;
+            cursor: not-allowed;
+            &:hover{
+            	background:#fff;
+            }
+        }
+    }
+}

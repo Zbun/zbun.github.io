@@ -1,0 +1,30 @@
+@import 'base/_variables';
+
+.set {
+    >.item {
+    	padding: 8px 0;
+        line-height: $height-input;
+        >.name {
+            min-width: 6em;
+            float: left;
+            margin-right: 1.5em;
+            text-align: right;
+        }
+        >.content {
+            display: block;
+            overflow: hidden;
+            input[type=text] {
+                min-width: 250px;
+            }
+            input.ipt-s{
+            	min-width: 100px;
+            }
+        }
+    }
+    &.thin{
+        >.item{
+            line-height: 20px;
+            padding: 5px 0;
+        }
+    }
+}

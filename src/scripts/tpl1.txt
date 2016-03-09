@@ -1,0 +1,8 @@
+<div class="footer">
+	<ul>
+		<li><a href="javascripts:;">友情链接</a></li>
+		<li><a href="javascripts:;">友情链接</a></li>
+		<li><a href="javascripts:;">友情链接</a></li>
+		<li><a href="javascripts:;">友情链接</a></li>
+	</ul>
+</div>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="common.css">
+    <title>列表</title>
+    <style>
+    .main {
+        padding: 20px;
+    }
+    
+    .main > .content {
+        counter-reset: order;
+    }
+    
+    .main .content h2.order {
+        margin: 10px 0;
+        counter-increment: order;
+    }
+    
+    .main .content h2.order:before {
+        content: counter(order)'. ';
+    }
+    
+    .main .content>.row {
+        border-bottom: 1px dashed #ddd;
+    }
+    
+    .show {
+        position: relative;
+        padding-left: 380px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main show clearfix">
+        <div class="show-box fl">
+            <style>
+            .show-box {
+                position: absolute;
+                left: 20px;
+                margin-right: 10px;
+            }
+            
+            .show-box .box {
+                border: 1px solid #ddd;
+                padding: 56px 8px;
+                -webkit-border-radius: 32px;
+                -moz-border-radius: 32px;
+                border-radius: 32px;
+            }
+            
+            .show-box .box .inner {
+                width: 320px;
+                height: 568px;
+                border: 1px solid #ddd;
+                overflow-x: hidden;
+            }
+            
+            .show-box .box .inner::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+                background: #e3e3e3;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+            }
+            
+            .show-box .box .inner::-webkit-scrollbar-thumb {
+                background: #aaa;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                box-shadow: 0 1px #f2f2f2, 0 -1px #f2f2f2;
+            }
+            
+            .show-box .box .inner::-webkit-scrollbar-thumb:hover {
+                background: #888;
+            }
+            
+            .show-box .box .inner::-webkit-scrollbar-thumb:active {
+                background: #aaa;
+            }
+            
+            .show-box .box .btn-area > div {
+                position: absolute;
+            }
+            
+            .show-box .box .btn-area .power {
+                width: 4px;
+                height: 26px;
+                top: 120px;
+                right: -3px;
+                border: 1px solid #ddd;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+            }
+            
+            .show-box .box .btn-area .lock {
+                top: 68px;
+                width: 4px;
+                height: 22px;
+                left: -3px;
+                border: 1px solid #ddd;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+            }
+            
+            .show-box .box .btn-area .tune {
+                top: 120px;
+                left: 0;
+            }
+            
+            .show-box .box .btn-area .tune:before,
+            .show-box .box .btn-area .tune:after {
+                content: '';
+                position: absolute;
+                left: -3px;
+                width: 4px;
+                height: 26px;
+                border: 1px solid #ddd;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+            }
+            
+            .show-box .box .btn-area .tune:after {
+                top: 32px;
+            }
+            
+            .show-box .box .btn-area .receiver,
+            .show-box .box .btn-area .btn-home {
+                left: 50%;
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+            }
+            
+            .show-box .box .btn-area .receiver {
+                width: 52px;
+                height: 6px;
+                top: 32px;
+                background: #ddd;
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                border-radius: 6px;
+            }
+            
+            .show-box .box .btn-area .receiver:before,
+            .show-box .box .btn-area .receiver:after {
+                content: '';
+                position: absolute;
+                left: -12px;
+                width: 6px;
+                height: 6px;
+                background: #ddd;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                border-radius: 100%;
+            }
+            
+            .show-box .box .btn-area .receiver:after {
+                width: 8px;
+                height: 8px;
+                left: 50%;
+                top: 50%;
+                margin-top: -16px;
+                margin-left: -4px;
+            }
+            
+            .show-box .box .btn-area .btn-home {
+                width: 44px;
+                height: 44px;
+                bottom: 7px;
+                border: 1px solid #ddd;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                border-radius: 100%;
+                box-shadow: 0 1px #ccc;
+            }
+            
+            .show-box .box .btn-area .btn-home:before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #ddd;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            </style>
+            <div class="box">
+                <div class='btn-area'>
+                    <div class="power">
+                    </div>
+                    <div class="tune">
+                    </div>
+                    <div class="lock"></div>
+                    <div class="receiver">
+                    </div>
+                    <div class="btn-home">
+                    </div>
+                </div>
+                <div class="inner">
+                    <div class="content">
+                        div*80{我是内容}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row ">
+                <h2 class='order'>按钮及输入：</h2>
+                <input type="text" required class='' placeholder='必须输入样式'>
+                <a href="javascript:;" class="btn">无添加</a>
+                <a href="javascript:;" class="btn ok">确定类</a>
+                <a href="javascript:;" class="btn info">信息类</a>
+                <a href="javascript::" class="btn primary">首选类</a>
+                <a href="javascript::" class="btn warn">警示类</a>
+                <a href="javascript:;" class="btn danger">危险类</a>
+                <a href="javascript:;" class="btn disabled">失效</a>
+                <a href="javascript:;" class="btn disabled btn-disabled">失效按钮</a>
+                <button class=btn>新按钮</button>
+                <div>我需要一些文字
+                    <textarea name="" id="" cols="20" rows="3"></textarea>
+                    后面再来一些，试试对齐
+                    <input type="number">
+                    <input type="search">
+                    <input type="date">
+                    <input type="color">
+                    <input type="tel"> 需要一些文字：
+                    <select name="" id="">
+                        <option value="">下拉选项</option>
+                        <option value="">下拉选项</option>
+                        <option value="">下拉选项</option>
+                    </select>
+                    <input type="radio">
+                    <input type="checkbox">
+                </div>
+                <p>
+                    <meter min=0 max=100 value=33></meter>
+                </p>
+            </div>
+            <div class="row">
+                <h2 class='order'>文本及背景：</h2>
+                <div>
+                    <p class="text ok">文本确定类</p>
+                    <p class="text info">文本信息类</p>
+                    <p class="text warn">文本警示类</p>
+                    <p class="text danger">文本危险类</p>
+                    <p class="text muted">文本灰色类</p>
+                    <p class="text disabled">文本不可用类</p>
+                </div>
+                <div>
+                    <p class="bg ok">背景确定类</p>
+                    <p class="bg info">背景信息类</p>
+                    <p class="bg warn">背景警示类</p>
+                    <p class="bg danger">背景危险类</p>
+                    <p class="bg muted">背景灰色类</p>
+                    <p class="bg disabled">背景不可用类</p>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="upload-wrapper" title='上传'>
+                    <input type="file">
+                </div>
+            </div>
+            <div class="row">
+                <h2 class="order">
+					数据展示
+				</h2>
+                <div>
+                    <table class='table text-center bordered hover'>
+                        <thead>
+                            <tr>
+                                <th>我是表头(居中)</th>
+                                <th>我是表头(居中)</th>
+                                <th>我是表头(居中)</th>
+                                <th>我是表头(居中)</th>
+                                <th>我是表头(居中)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="required-mark">我是表身头</th>
+                                <td>我是表内容</td>
+                                <td><a href="javascript:;">我是链接</a></td>
+                                <td>
+                                    <input type="text">
+                                </td>
+                                <td><a href="javascript:;" class="btn info">我是按钮</a></td>
+                            </tr>
+                            <tr>
+                                <th class="required-mark">我是表身头</th>
+                                <td>我是表内容</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class='table bordered text-left hover'>
+                        <thead>
+                            <tr>
+                                <th>我是表头</th>
+                                <th>我是表头</th>
+                                <th>我是表头</th>
+                                <th>我是表头</th>
+                                <th>我是表头</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="required-mark">我是表身头</th>
+                                <td>我是表内容</td>
+                                <td><a href="javascript:;">我是链接</a></td>
+                                <td>
+                                    <input type="text">
+                                </td>
+                                <td><a href="javascript:;" class="btn danger">我是按钮</a></td>
+                            </tr>
+                            <tr>
+                                <th class="required-mark">我是表身头</th>
+                                <td>我是表内容</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table column">
+                        <tbody>
+                            <tr>
+                                <th class="tag required-mark">必填项之一：</th>
+                                <td>
+                                    <input type="text" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="tag required-mark">必填项之二：</th>
+                                <td>
+                                    <input type="text" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="tag">选填项之一：</th>
+                                <td>
+                                    <input type="text">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <ul class="lists">
+                        <li><a class='block' href="javascript:;">一些链接文字</a></li>
+                        <li><a href="javascript:;">一些链接文字</a></li>
+                        <li><a href="###">一些链接文字</a></li>
+                    </ul>
+                    <ul class="lists bordered">
+                        <li><a class='block' href="javascript:;">一些链接文字，有个下边框，块级链接</a></li>
+                        <li><a href="javascript:;">一些链接文字，有个下边框</a></li>
+                        <li><a href="###">一些链接文字，有个下边框</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='../../js/common.js'></script>
+</body>
+
+</html>

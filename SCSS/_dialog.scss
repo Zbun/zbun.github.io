@@ -1,0 +1,128 @@
+
+@import 'base/_variables';
+.ui-popup-backdrop{
+    opacity: .5!important;
+}
+.ui-popup-show {
+    -webkit-animation: popup-zoom .2s;
+    animation: popup-zoom .2s;
+
+    // -webkit-animation: popup-goup .2s;
+    // -o-animation: popup-goup .2s;
+    // animation: popup-goup .2s;
+    // 
+        // -webkit-animation: popup-godown .3s;
+    // -o-animation: popup-godown .3s;
+    // animation: popup-godown .3s;
+    table {
+        border-spacing: 0;
+    }
+    .ui-dialog {
+        background: #fff;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        .ui-dialog-header {
+        	position: relative;
+            padding: 0 10px;
+            line-height: 36px;
+            font-size: 16px;
+            background: #e8e8e8;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            .ui-dialog-close {
+                position: absolute;
+                right: 4px;
+                top: 0;
+                bottom: 4px;
+                padding: 0 6px;
+                border: 0;
+                font-size: 24px;
+                color: #999;
+                background: transparent;
+                &:hover{
+                	color:$color-primary;
+                }
+            }
+        }
+        .ui-dialog-body{
+        	padding: 20px;
+        }
+        .ui-dialog-footer{
+        	padding: 10px;
+            padding-top: 0;
+        	.ui-dialog-button{
+        		margin-bottom: 10px;
+        		text-align: center;
+                direction: rtl;
+        		button{
+        			padding: 0 24px;
+        			margin: 8px;
+                    margin-top: 0;
+                    border:1px solid $color-border;
+        			line-height: 34px;
+        			font-size: 16px;
+        			color: #555;
+                    background:#fff;
+        			&:hover{
+        				background:$color-btn-hover;
+        			}
+        		}
+        		[i-id=ok]{
+        			background:$color-primary;
+        			color: #fff;
+        			border-color: darken($color-primary,4%);
+        			&:hover{
+        				background:darken($color-primary,4%);
+        			}
+        		}
+        	}
+        }
+    }
+}
+@-webkit-keyframes popup-zoom {
+    from { -webkit-transform: scale(0);
+    transform: scale(0); }
+    to { -webkit-transform: scale(1);
+    transform: scale(1); }
+}
+
+@keyframes popup-zoom {
+    from { -webkit-transform: scale(0);
+    transform: scale(0); }
+    to { -webkit-transform: scale(1);
+    transform: scale(1); }
+}
+
+@-webkit-keyframes popup-goup {
+           from { -webkit-transform: translateY(50px);
+           transform: translateY(50px); }
+            opacity: .3;
+           to { -webkit-transform: translateY(0);
+           transform: translateY(0);}
+            opacity: 1;
+       }
+       @keyframes popup-goup {
+           from { -webkit-transform: translateY(50px);
+           transform: translateY(50px);
+           opacity: .3; }
+           to { -webkit-transform: translateY(0);
+           transform: translateY(0);opacity: 1; }
+       }       
+
+       @-webkit-keyframes popup-godown {
+           from { -webkit-transform: translateY(-250px);
+           transform: translateY(-250px); }
+            opacity: .3;
+           to { -webkit-transform: translateY(0);
+           transform: translateY(0);}
+            opacity: 1;
+       }
+       @keyframes popup-godown {
+           from { -webkit-transform: translateY(-250px);
+           transform: translateY(-250px);
+           opacity: .3; }
+           to { -webkit-transform: translateY(0);
+           transform: translateY(0);opacity: 1; }
+       }  

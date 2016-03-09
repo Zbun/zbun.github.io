@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>practise1-react</title>j
+
+    <script src="../../../scripts/react/react.js"></script>
+    <script src="../../../scripts/react/JSXTransformer.js"></script>
+    <!-- 	<script src="../../../scripts/react/browser.min.js"></script>
+ -->
+ <script src="../../../scripts/lib/jquery-1.11.3.js"></script>
+ <script src="../../../scripts/lib/jquery.typer.js"></script>
+    <style>
+    body {
+        /*background: #233;*/
+        /*color: #f2f2f2;*/
+    }
+    
+    .main .row {
+        margin-bottom: 10px;
+    }
+    
+    .main .row .title {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+    
+    .main .row .content {}
+    </style>
+</head>
+
+<body>
+<h3 data-typer-targets='Hello World'></h3>
+<script>
+	//$('h3').typer()
+</script>
+
+    <article class="main">
+        <section class="row">
+            <h3 class='title'>普通模板渲染:</h3>
+            <div class="content">
+                <div id="bug"></div>
+                <script type='text/jsx'>
+                    var name='UA'; React.render(
+                    <span className='ua'>{name}:{navigator.userAgent}</span>,document.getElementById('bug'));
+                </script>
+            </div>
+        </section>
+        <section class="row">
+            <h3 class="title">混写，变量转数组</h3>
+            <div class="content">
+                <div id="arr"></div>
+                <script type="text/jsx">
+                     var arr=['hello','here is',123,"Z's blog"]; React.render(
+                    <ul>{arr.filter(function(v){ return typeof v==='string' }).map(function(v){ return
+                        <li>{v}</li>
+                        })}</ul>,document.getElementById('arr')) 
+
+
+var obj1={name:{Gates:'Bill',Jobs:'Steven'},job:'CEO'};
+	React.render(<ul>{for(var i in obj1){return <li>{obj1[i]}</li>}}</ul>,document.getElementById('arr'))
+
+                </script>
+            </div>
+        </section>
+    </article>
+    <article class="row">
+        <canvas id='canvas1' width=500 height=500>
+            Update your browser to enjoy canvas!
+        </canvas>
+        <script>
+        var canvas1=document.getElementById('canvas1');
+        var ctx = canvas1.getContext('2d');
+
+       // ctx.beginPath();
+        // ctx.strokeStyle='blue';
+        //ctx.moveTo(175,50);
+        // ctx.lineTo(75,100);
+        // ctx.lineTo(25,100);
+        // ctx.stroke();
+        // ctx.closePath();
+
+        //曲线
+        // ctx.quadraticCurveTo(60,360,175,300);
+        // ctx.stroke();
+
+        //填充及清除矩形及绘制边框
+        // ctx.fillStyle='red';
+        // ctx.fillRect(75,75,250,250);ctx.clearRect(125,125,100,100);
+        // ctx.strokeStyle='black';ctx.lineWidth=5;ctx.strokeRect(175,175,150,150);
+
+        //线性渐变
+        // var grd=ctx.createLinearGradient(75,75,225,75);
+        // grd.addColorStop(0,'black');grd.addColorStop(0.3,'magenta');grd.addColorStop(0.6,'green');
+        // grd.addColorStop(1,'red');
+        // ctx.fillStyle=grd;ctx.fillRect(75,175,150,150);
+        // ctx.lineWidth=6;ctx.strokeStyle=grd;ctx.strokeRect(75,75,150,150);
+
+        //径向渐变
+        // var grd=ctx.createRadialGradient(150,150,5,150,150,85);
+        // grd.addColorStop(0,'orange');grd.addColorStop(0.2,'blue');grd.addColorStop(0.8,'seagreen');
+        // grd.addColorStop(1,'red');ctx.fillStyle=grd;ctx.fillRect(75,75,150,150);
+
+        //绘制圆形
+        // ctx.fillStyle='yellow';ctx.strokeStyle='green';ctx.lineWidth=8;ctx.arc(100,175,85,0,2*Math.PI);
+        // ctx.fill();ctx.stroke();
+        // ctx.beginPath();ctx.fillStyle='green';ctx.strokeStyle='yellow';ctx.lineWidth=8;
+        // ctx.arc(285,175,85,0,1*Math.PI);ctx.fill();ctx.stroke();
+        // 
+        // 填充文本
+        // ctx.beginPath();ctx.font='26px Georgia';var grd=ctx.createLinearGradient(0,0,canvas1.width,0);
+        // grd.addColorStop(0,'yellow');grd.addColorStop(0.5,'blue');grd.addColorStop(1,'red');
+        // ctx.fillStyle=grd;ctx.fillText('www.google.com',50,150);
+        // 
+        // scale 应用，缩放时开始坐标跟随缩放比例
+        // ctx.strokeRect(75,75,75,75);ctx.scale(2,2);ctx.strokeRect(75,75,75,75);
+        // 
+        // rotate 应用，translate，偏移
+        // ctx.rotate(0.2);ctx.strokeRect(75,75,75,75);
+
+        //save 功能
+        // ctx.fillStyle='red';ctx.fillRect(75,75,150,150);ctx.fillStyle='blue';ctx.fillRect(90,90,50,50);
+        // ctx.save();ctx.fillStyle='yellow';ctx.fillRect(90,160,50,50);ctx.save();
+        // ctx.fillStyle='green';ctx.restore();ctx.restore();ctx.fillRect(160,160,50,50);
+        // 
+        // 图片使用
+        // var i=new Image();
+        // i.src='/src/images/google_09-02.gif';i.onload=function(){
+        // 	ctx.strokeStyle='green';ctx.lineWidth=5;ctx.drawImage(i,0,0);ctx.strokeRect(63,108,70,80);
+        // ctx.strokeStyle='green';ctx.font='30px Georgia';ctx.lineWidth=1;ctx.strokeText('Google',80,40);
+
+        // //draw Arrrow
+        // ctx.beginPath();ctx.strokeStyle='red';ctx.lineWidth=2;ctx.moveTo(110,110);ctx.lineTo(125,40);
+        // ctx.moveTo(110,110);ctx.lineTo(100,90);ctx.moveTo(110,110);ctx.lineTo(126,95);ctx.stroke();
+        // }
+        // 
+        // 执行动画
+        // var interval,x=0,y=0;
+        // function drawInAnimation(){
+        // 	ctx.beginPath();ctx.moveTo(x,y);ctx.clearRect(x,y,50,50);
+        // 	if(x>document.getElementById('canvas1').width){
+        // 		x=0;y+=50;
+        // 		if(y+50>document.getElementById('canvas1').height){
+        // 			x=0;y=0;
+        // 		}
+        // 	}
+        // 	else{
+        // 		x+=15;
+        // 	}
+        // 	ctx.fillStyle=getRndColor();
+        // 	ctx.fillRect(x,y,50,50);
+        // }
+
+        // function getRndColor(){
+        // 	var r=255*Math.random()|0,g=255*Math.random()|0,b=255*Math.random()|0;
+        // 	return 'rgb('+r+','+g+','+b+')';
+        // }
+        // interval=setInterval(drawInAnimation,150);
+        // 
+        //
+        //画白色点动画
+         var posX=20,posY=100;
+        setInterval(function(){
+        	ctx.fillStyle='black';ctx.fillRect(0,0,canvas1.width,canvas1.height);
+        	posX+=1;posY+=0.25;
+        	ctx.beginPath();ctx.fillStyle='white';ctx.arc(posX,posY,10,0,Math.PI*2,true);
+        	if(posX>canvas1.width){
+        		posX=20;
+        		posY=100;
+        	}
+        	ctx.closePath();ctx.fill();
+        },30);
+        
+        var vx=10,vy=-10,gravity=1;
+        setInterval(function(){
+        	posX+=vx;posY+=vy;
+        	if(posY>canvas1.height*0.75){
+        		vy*=-0.6;vx*=0.75;posY=canvas1.height*0.75;
+        	}
+        	vy+=gravity;
+        },50)
+        </script>
+    </article>
+    <article class="row">
+    	<svg id='mySvg' width=500 height=500 style='border:1px solid #f00'>
+    		<rect x="0" y="0" width="205" height="200" stroke="" fill="rgb(199,240,185)" stroke-width=""/>
+
+    		<!-- Hat Start -->
+    		<rect x="78" y="10" width="44" height="70" stroke="" fill="" stroke-width="" style="fill:black;stroke:black;"></rect>
+    		<ellipse cx="100" cy="20" rx="67" ry="12" stroke="white" fill="black" stroke-width="0.5"></ellipse>
+    		<!-- Hat End -->
+
+    		<ellipse cx="55" cy="70" rx="25" ry="25" stroke="black" fill="gray" stroke-width="2"></ellipse>
+    		<ellipse cx="145" cy="70" rx="25" ry="25" stroke="black" fill="gray" stroke-width="2"></ellipse>
+
+			<!-- Face -->
+    		<circle cx="100" cy="105" r="50" stroke="black" fill="rgb(230,231,194)" stroke-width="2"></circle>
+			<!-- Left Eye -->
+			<ellipse cx="75" cy="95" rx="10" ry="20" style="fill:white;stroke:black;stroke-width:1" stroke="" fill="" stroke-width=""></ellipse>
+			<!-- Left Eye ball -->
+			<ellipse cx="80" cy="95" rx="5" ry="12" stroke="" fill="" stroke-width="" style="fill:black;stroke:black;stroke-width:1"></ellipse>
+			<!-- Right Eye -->
+			<ellipse cx="125" cy="95" rx="10" ry="20" stroke="" fill="" stroke-width="" style="fill:white;stroke:black;stroke-width:1"></ellipse>
+			<!-- Right Eye Ball -->
+			<ellipse cx="120" cy="95" rx="5" ry="12" stroke="" fill="" stroke-width="" style="fill:black;stroke:black;stroke-width:1"></ellipse>
+			<!-- Mouth Start -->
+			<clipPath id="cut-off-bottom"><rect x="70" y="135" width="60" height="30" stroke="" fill="" stroke-width=""></rect></clipPath>
+			<ellipse cx="100" cy="125" rx="30" ry="20" clip-path='url(#cut-off-bottom)' stroke="" fill="" stroke-width="" style="fill:rgb(230,231,194);stroke:black;stroke-width:2"></ellipse>
+			<!-- Nose -->
+			<polygon points="100,115 85,125 115,125" style="fill:brown;stroke-width:1" stroke="" fill="" stroke-width=""></polygon>
+
+			<line x1="0" x2="205" y1="165" y2="165" style="stroke:brown;stroke-width:2" stroke="" fill="" stroke-width=""></line>
+			<text x="25" y="185" font-family="Comic Sans MS" fill="blue" stroke="" stroke-width="">A coder can be creative</text>
+    	</svg>
+    </article>
+    <script data-main='../../../scripts/requireR' src="../../../scripts/lib/require.js"></script>
+<script src="../../../scripts/import1.js?rev=d6e5741e4f12159f8fdbe6256487a367"></script>
+    <script>
+    	// 'use strict'
+    	// import waiting from '../../../scripts/waiting'
+    	// waiting.justWaiting.show();
+    </script>
+</body>
+
+</html>
