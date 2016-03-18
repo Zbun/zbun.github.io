@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>商城设置-中网易企赢</title>
+    <meta name="keywords" content="北龙中网易企赢网上商城">
+    <link rel="stylesheet" href="../../fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../CSS/mall_admin.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="body">
+            <h2 class="content-title p10">商城设置</h2>
+            <article class="info-list thin m10">
+                <section class="item">
+                    <header class="title">
+                        自提地址设置
+                        <span class='text-muted font-small ml5'>(设置后，将在卖家自提商品订单内显示)</span>
+                    </header>
+                    <div class="content contact">
+                        <div class='item'>
+                            <span class="title phone">联系电话</span>
+                            <span class='content address ml5'>自提地址</span>
+                        </div>
+                        <ul class='item'>
+                            <li>
+                                <input type="tel" class="phone" required pattern="^1\d{10}" placeholder="输入电话">
+                                <input type="text" class="address" placeholder="请输入详细地址">
+                                <button class="btn btn-primary">保存</button>
+                                <button class="btn">删除</button>
+                            </li>
+                            <li>
+                                <input type="tel" class="phone" required pattern="^1\d{10}" placeholder="输入电话">
+                                <input type="text" class="address" placeholder="请输入详细地址">
+                                <button class="btn btn-primary">保存</button>
+                            </li>
+                        </ul>
+                        <div>
+                            <button class="btn mt10">+ 新增一个</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="item">
+                    <header class="title">
+                        新增订单提醒设置
+                        <span class='text-muted font-small ml5'>(当有新订单时，发送短信提醒)</span>
+                    </header>
+                    <div class="content">
+                        <label>
+                            <input type="checkbox" name="" id="">开启订单提醒，并发送到以下手机号</label>
+                        <input type="tel" required placeholder="输入接收短信的手机号" pattern='^1\d{10}$'>
+                        <div class='action-field'>
+                            <button class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="item">
+                    <header class="title">
+                        订单支付、收货时限设置
+                    </header>
+                    <div class="content">
+                        <p>在线支付订单，超过
+                            <input type="number" class="ipt-s m5" placeholder="60">分钟，系统将自动关闭订单。自提订单不受此项设定限制。</p>
+                        <p>发货后，超过
+                            <input type="number" class="ipt-s m5">分钟，买家不确认收货，系统将自动完成交易。</p>
+                        <div class='action-field'>
+                            <button class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="item">
+                    <header class="title">
+                        积分抵扣规则
+                    </header>
+                    <div class="content">
+                        <label>
+                            <input type="checkbox">开启积分抵扣规则</label>
+                        <p>积分抵扣规则：会员积分在商城购买时，1元=
+                            <input type="number" class="ipt-s m5" placeholder="100" value=100>积分</p>
+                        <div>积分抵扣比例：单笔订单，按商品总金额，最多可以抵扣
+                            <input type="text" class="ipt-s m5" placeholder="10" value="10">%，并且根据比例计算结果
+                            <br><span class="mt5 text-muted font-small">（例：订单比例为10%时，订单总金额为123元，则可抵扣金额为123*10%=12.3，取>1元整数后可抵扣金额为12元）</span>
+                        </div>
+                        <div class='action-field'>
+                            <button class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="item">
+                    <header class="title">
+                        优惠券、存储卡抵扣，线下支付及发票设置
+                    </header>
+                    <div class="content">
+                        <div class="set pay-way">
+                            <dl class="item">
+                                <dt class="name text-left">积分券抵扣：</dt>
+                                <dd class="content">
+                                    <label class="mr10"><input type="radio" name="pay-way-score" id="" checked>启用</label>
+                                    <label class="ml10"><input type="radio" name="pay-way-score" id="">禁用</label>
+                                    <span class="ml5 text-muted">（开启后，用户可以使用领取优惠券，抵扣订单金额）</span>
+                                </dd>
+                            </dl> <dl class="item">
+                                <dt class="name text-left">储值卡支付：</dt>
+                                <dd class="content">
+                                    <label class="mr10"><input type="radio" name="pay-way-card" id="" checked>启用</label>
+                                    <label class="ml10"><input type="radio" name="pay-way-card" id="">禁用</label>
+                                    <span class="ml5 text-muted">（开启后，用户可以预存储值卡金额支付订单）</span>
+                                </dd>
+                            </dl><dl class="item">
+                                <dt class="name text-left">线下支付：</dt>
+                                <dd class="content">
+                                    <label class="mr10"><input type="radio" name="pay-way-offline" id="" checked>启用</label>
+                                    <label class="ml10"><input type="radio" name="pay-way-offline" id="">禁用</label>
+                                    <span class="ml5 text-muted">（开启后，提交订单时支持货到付款）</span>
+                                </dd>
+                            </dl><dl class="item">
+                                <dt class="name text-left">提供发票：</dt>
+                                <dd class="content">
+                                    <label class="mr10"><input type="radio" name="pay-way-invoice" id="" checked>启用</label>
+                                    <label class="ml10"><input type="radio" name="pay-way-invoice" id="">禁用</label>
+                                    <span class="ml5 text-muted">（开启后，提交订单时可选择开据个人或单位发票）</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="action-field">
+                            <button class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="item">
+                    <header class="title">
+                        运费规则
+                    </header>
+                    <div class="content">
+                        <div class="set">
+                            <dl class="item">
+                                <dt class="name text-left">商家包邮：</dt>
+                                <dd class="content">
+                                    <label class="mr10"><input type="radio" name="express-way" id="" checked>启用</label>
+                                    <label class="ml10"><input type="radio" name="express-way" id="">禁用</label>
+                                    <span class="ml5 text-muted">（开启后，商城所有订单免收运费）</span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <table>
+                            <tr>
+                                <td><span class="mr10">订单商品总金额条件</span></td>
+                                <td><span class="ml10">收取运费</span></td>
+                                <td><span class="ml10">操作</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="ipt-s" value=0 disabled> < 商品金额 <= <input type="text" class="ipt-s mr10 mt5 mb5" value=10></td>
+                                <td><input type="text" class="ipt-s ml10 mr10" value=20></td>
+                                <td><p class="ml10"><a href="javascript:;">删除</a></p></td>
+                            </tr><tr>
+                                <td><input type="text" class="ipt-s" value=10> < 商品金额 <= <input type="text" class="ipt-s mr10 mt5 mb5" value=100></td>
+                                <td><input type="text" class="ipt-s ml10" value=10></td>
+                                <td><p class="ml10 mt5"><a href="javascript:;">删除</a></p></td>
+                            </tr><tr>
+                                <td><input type="text" class="ipt-s" value=100> < 商品金额 <= <input type="text" class="ipt-s mr10 mt5" value="无穷大"></td>
+                                <td><input type="text" class="ipt-s ml10 mt5" value=0></td>
+                                <td><p class="ml10 mt5"><a href="javascript:;">删除</a></p></td>
+                            </tr>
+                        </table>
+                        <div class="action-field">
+                            <button class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>商品管理-主页</title>
+    <link rel="stylesheet" href="../../fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../CSS/mall_admin.css">
+</head>
+
+<body>
+    <div class="main clearfix">
+        <aside class="side cat">
+            <header class='p10'>
+                <a href="javascript:;" class="fr">商品回收站</a>
+                <h3 class="content-title">全部分类<a class="ml5" href="javascript:;" id="addCategory" title='添加分类'><i class="fa fa-plus"></i></a></h3>
+            </header>
+            <ul class='tree' id="tree" v-cloak>
+                    <li class='item' v-for='item in tree.child'>
+                    <dl class='cell' data-id="{{item.id}}">
+                        <dt class="tree-title cat-title on">
+                            <p class='title-text'><span class='inner'>{{item.name}}</span></p>
+                            <span class="action">
+                            <i class="icon fa fa-plus add" title='添加'></i>
+                            <i class="icon fa fa-edit edit" title='编辑'></i>
+                            <i class="icon fa fa-trash del" title='删除'></i>
+                        </span>
+                        </dt>
+                        <dd class='tree-content'>
+                            <a class='item' href="javascript:;" id="item.child.id" v-show='item.child.length' v-for="item2 in item.child">
+                                <p class='title-text'><span class='inner'>{{item2.name}}</span></p>
+                                <span class="action">
+                                    <i class="icon fa fa-edit edit" title='编辑'></i>
+                                    <i class="icon fa fa-trash del" title='删除'></i>
+                                </span>
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </aside>
+        <article class="body">
+            <header class='row'>
+                <h2 class='content-title'>商品管理</h2>
+            </header>
+            <section class="action row">
+                <div class="fr search-field"><span>商品状态：<select name="" id="">
+                    <option value="1">在售</option><option value="0">已下架</option></select></span>
+                    <button class="btn-search icon-search"><i class="fa fa-search"></i></button>
+                    <input type="search" class='ipt-search kw' title='商品名称关键字' placeholder='输入商品名称'>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary"><b>+ </b>添加商品</button>
+                    <button class="btn btn-primary">批量上架/下架</button>
+                    <button class="btn btn-primary remove-batch">批量转移</button>
+                    <button class="btn btn-primary del-batch">批量删除</button>
+                </div>
+            </section>
+            <section class="data row">
+                <table class='table text-center table-bordered table-hover table-radian'>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" class='chk-all' title="全选">
+                            </th>
+                            <th>名称</th>
+                            <th>价格（元）</th>
+                            <th>置顶</th>
+                            <th>显示顺序</th>
+                            <th>自提</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class='chk' name="" id="">
+                            </td>
+                            <td>
+                                <p class='name'>Philips100K超现实显示器</p>
+                            </td>
+                            <td>
+                                <p class='price'>388888888888</p>
+                            </td>
+                            <td>是</td>
+                            <td>
+                                <div class="order-field"><span class="num">3</span>
+                                    <a href="javascript:;" class='action-edit' title='编辑显示顺序'><i class="fa fa-edit"></i></a>
+                                    <div class="edit-field">
+                                        <input type="text">
+                                        <a href="javascript:;">保存</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>否</td>
+                            <td>
+                                <div class='action-field'><a class='item' href="javascript:;">编辑</a>
+                                    <a class='item' href="javascript:;">复制</a>
+                                    <a class='item spread' href="javascript:;">推广</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class='chk' name="" id="">
+                            </td>
+                            <td>
+                                <p class='name'>Philips100K超现实显示器</p>
+                            </td>
+                            <td>
+                                <p class='price'>388888888888</p>
+                            </td>
+                            <td>是</td>
+                            <td>
+                                <div class="order-field isediting"><span class="num">3</span>
+                                    <a href="javascript:;" class='action-edit' title='编辑显示顺序'><i class="fa fa-edit"></i></a>
+                                    <div class="edit-field">
+                                        <input type="number">
+                                        <a href="javascript:;">保存</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>否</td>
+                            <td>
+                                <div class='action-field'><a class='item' href="javascript:;">编辑</a>
+                                    <a class='item' href="javascript:;">复制</a>
+                                    <a class='item spread' href="javascript:;">推广</a></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="page-content"></div>
+                <div id="pagination" class='text-center p10'></div>
+                <div class="data-empty">
+                    <h3 class="bg bg-danger text-center p10">
+                        暂时没有相关数据
+                    </h3>
+                </div>
+            </section>
+        </article>
+    </div>
+    <div class="popup-html">
+        <article class="category">
+            <section class="add">
+                <div class="row set popup-set">
+                    <dl class="item">
+                        <dt class="name"><i class="required-mark"></i>分类名称</dt>
+                        <dd class="content">
+                            <input type="text" required placeholder='请输入分类名称'>
+                            <p class="text-muted text-tips font-small">分类长度限定20字以内，中英文、数字</p>
+                        </dd>
+                    </dl>
+                    <dl class="item">
+                        <dt class="name">显示顺序</dt>
+                        <dd class="content">
+                            <input type="number" class="ipt-s" placeholder='显示顺序'>
+                        </dd>
+                    </dl>
+                    <dl class="item">
+                        <dt class="name">前台展示</dt>
+                        <dd class="content">
+                            <label>
+                                <input type="radio" name="show" id="">展示</label>
+                            <label class="ml5">
+                                <input type="radio" name="show" id="">不展示</label>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+        </article>
+        <article class="action">
+            <section class="spread">
+                <div class="popup-spread">
+                    <h4>
+                    <b>你可以通过以下方式投放</b>
+                    </h4>
+                    <div>
+                        <ol>
+                            <li class='clearfix'>
+                                <img src="" alt="二维码" class="fr qrcode"> 下载二维码
+                                <p class="text-muted font-s">
+                                    下载活动二维码，通过打印张贴或其他渠道发放
+                                </p>
+                            </li>
+                            <li>
+                                通过公众号自定义菜单方式灵活投放：
+                                <div class="copy mt5">
+                                    <button class="fr btn btn-primary btn-copy">复制链接</button>
+                                    <input type="text" class="block">
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </div>
+    <script src="../../scripts/lib/jquery-1.11.3.js"></script>
+    <script src="../../scripts/lib/jquery.twbsPagination.min.js"></script>
+    <script src="../../scripts/lib/artdialog/dist/dialog-plus-min.js"></script>
+    <script src="../../scripts/lib/ztree/js/jquery.ztree.all.min.js"></script>
+    <script src="../../scripts/lib/vue.js"></script>
+    <script>
+
+    var treeData = {
+        id: 32565,
+        name: '全部分类',
+        child: [{
+            id: 123456,
+            name: '一级1-家电',
+            child: [{
+                id: 123654,
+                name: '一级子-电视',
+            },{
+                id: 123654,
+                name: '一级子-流行洗衣机',
+            },{
+                id: 123654,
+                name: '一级子-冰箱',
+            },]
+        }, {
+            id: 123457,
+            name: '一级2-出行',
+            child: [{
+                id: 123654,
+                name: '二级子1-公交',
+            },{
+                id: 123654,
+                name: '二级子2-飞机',
+            },{
+                id: 123654,
+                name: '二级子3-火车',
+            },
+            ]
+        }, {
+            id: 123458,
+            name: '一级3-饭吃',
+            child: []
+        }, ],
+    };
+
+
+    $(function() {
+
+
+        //树切换
+        $('.tree').on('click', '.tree-title', function() {
+            $(this).toggleClass('on');
+            if($(this).siblings('.tree-content').children().length<=0) {
+                $(this).closest('.tree').find('.active').removeClass('active');
+                $(this).addClass('active');
+            }
+        }).on('click','.tree-content>.item',function(){
+            $(this).closest('.tree').find('.active').removeClass('active');
+            $(this).addClass('active');
+        })
+
+        var tree=new Vue({
+    el:'#tree',
+    data:{
+       tree: treeData
+       ,},
+       created:function(){
+        //$('.tree').find('.item').find('.tree-title').click();
+       }
+})
+        //全选
+        $('.data').find('table').on('change', '.chk-all', function() {
+            $(this).closest('table').find(':checkbox').prop('checked', this.checked);
+        }).on('change', ':checkbox:not(".check-all")', function() {
+            !this.checked && $(this).closest('table').find('.chk-all').prop('checked', false);
+        })
+
+        //分页
+        $('#pagination').twbsPagination({
+            totalPages: 15,
+            visiblePages: 7,
+            first: '首页',
+            last: '末页',
+            prev: '<',
+            next: '>',
+            onPageClick: function(event, page) {
+                $('#page-content').text('Page ' + page);
+            }
+        });
+
+        //弹窗
+        //
+        //
+        $('.del-batch').on('click',function(){
+            dialog({
+                skin:'mini',
+                title:'呆呵 ',
+                content:'点击确定将数据库级删除数据，确认否？',
+                ok:function(){
+                    alert("哈哈，逗你玩的");
+                },
+                cancel:function(){
+                    alert("取消也没用，成功删除");
+                },
+            }).showModal();
+        })
+
+        $('.remove-batch').on('click',function(){
+            dialog({
+                        title:"呵呵",
+                        modal:'mini-tips',
+                        ok:function(){
+
+                        }
+                    }).showModal();
+        })
+
+        $('#addCategory').on('click', function() {
+            dialog({
+                title: '添加分类',
+                content: $('.popup-html').find('.category').find('.add').html(),
+                ok: function() {alert("OK,Google Glass!")},
+                cancel: function() {
+                    dialog({
+                        title:"呵呵",
+                        skin:'mini-tips',
+                        ok:function(){
+
+                        }
+                    }).showModal();
+                }
+            }).showModal();
+        });
+
+        $('.table').on('click', '.spread', function() {
+            dialog({
+                title: '投放活动',
+                // className:'tiny',
+                
+                width: 400,
+                content: $('.popup-html').find('.action').find('.spread').html(),
+            }).showModal();
+        })
+
+    })
+
+console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$   $$$$   $$$$$$$     $$$$$$$   $$$$         $$$$             $$\n$$$$$   $$$   $$$$$$$$   $   $$$$$   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$\n$$$$   $$$  $$$$$$$$$   $$$   $$$   $$$$        $$$$$$$$$$   $$$$$$$$$\n$$$   $$$$$   $$$$$$   $$$$$   $   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$$$\n$$   $$$$$$$   $$$$   $$$$$$$     $$$$         $$$$$$$$$   $$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+
+    </script>
+</body>
+
+</html>

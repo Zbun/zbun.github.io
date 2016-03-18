@@ -8,6 +8,11 @@ $btn-big-line-height:34px;
 $btn-bigger-font-size:18px;
 $btn-bigger-line-height:38px;
 $color-table-anchor:#0990ca;
+
+::selection{
+    // background:lightcoral;
+    // color: #fff;
+}
 body {
     @include pcBody;
 }
@@ -47,14 +52,14 @@ select {
 
 select {
     height: 32px;
-    padding: 0 4px;
+    padding: 4px;
 }
 
 a {
     color: $color-anchor;
     text-decoration: none;
     &:visited {
-        color: $color-anchor-visited;
+        color: $color-anchor;
     }
     &:hover {
         color: $color-anchor-hover;
@@ -66,6 +71,7 @@ a {
     font-size: 16px;
     font-weight: 400;
 }
+
 
 .tree {
     line-height: 30px;
@@ -158,18 +164,18 @@ a {
                 border-left-color: #888;
                 @include trf(rotate(90deg) translate(4px, 4px));
             }
-            &.lonely{
-                background:$color-primary;
-                color: #fff;
-                &:before{
-                    border-color:transparent transparent transparent #fff;
-                }
-                .action{
-                    .icon{
-                        color: #f2f2f2;
-                        &:hover{
-                            color: #fff;
-                        }
+        }
+        &.active {
+            background: $color-primary;
+            color: #fff;
+            &:before {
+                border-color: transparent transparent transparent #fff;
+            }
+            .action {
+                .icon {
+                    color: #f2f2f2;
+                    &:hover {
+                        color: #fff;
                     }
                 }
             }
@@ -197,12 +203,15 @@ a {
                     // opacity: 1;
                 }
             }
-            &.on {
+            &.active {
                 background: $color-primary;
                 color: #fff;
                 .action {
                     .icon {
+                       color: #f2f2f2;
+                    &:hover {
                         color: #fff;
+                    }
                     }
                 }
             }
@@ -221,6 +230,9 @@ a {
     td {
         padding: 6px 4px;
         line-height: 32px;
+        p{
+            line-height: 24px;
+        }
     }
     thead {
         td,
@@ -236,7 +248,7 @@ a {
         }
     }
     .action-field {
-        >.item {
+        .item {
             margin: 4px;
             padding: 2px 4px;
             text-decoration: none;
@@ -266,6 +278,14 @@ a {
         border-top: 1px solid $color-table-border;
     }
 }
+.table-bordered-divide{
+    th,td{
+        border-left: 1px solid $color-table-border;
+        &:first-child{
+            border-left: 0;
+        }
+    }
+}
 
 .table-hover {
     tr {
@@ -275,6 +295,11 @@ a {
     }
 }
 
+.table-list{
+    >.table{
+        margin-bottom: 20px;
+    }
+}
 .search-field {
     position: relative;
     .ipt-search {
@@ -295,13 +320,51 @@ a {
             margin-left: -30px;
             font-size: 16px;
             padding-top: 1px;
+            border: 0;
+            border-left: 1px solid $color-border;
+            background:$color-table-thead;
+            white-space: nowrap;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
             border-radius: 0;
             &+.ipt-search {
                 padding-right: 36px;
             }
+            &:focus {
+                border-color: $color-border;
+            }
         }
+        &.text-search {
+            width: auto;
+            padding: 0 1em;
+            color: $color;
+            font-size: $font-size;
+            &+.ipt-search {
+                min-width: 250px;
+                padding-right: 3.5em;
+            }
+            &.col2+.ipt-search {
+                padding-right: 4.5em;
+            }
+            &.col3+.ipt-search {
+                padding-right: 5.5em;
+            }
+        }
+    }
+}
+
+.date-field{
+    position: relative;
+    padding-right: 4px;
+    input{
+        margin-right: -28px;
+        padding-right: 28px;
+    }
+    i{width: 20px;
+        font-size: 16px;
+    color:#bbb;
+    pointer-events:none;
+
     }
 }
 
@@ -376,70 +439,114 @@ a {
             }
         }
     }
-    &.thin{
-        >.item{
-            >.title{
+    &.thin {
+        >.item {
+            >.title {
                 line-height: $height-table-thead;
             }
         }
     }
 }
 
-.img-list.upload{
-    img{
-        margin-right:5px;
+.img-list.upload {
+    line-height: 1;
+    .img-wrapper{
+        display: inline-block;
+        position: relative;
+        margin: 10px 5px 0 0;
+        overflow: hidden;
+        .action{
+            position: absolute;
+            right: 0;
+            padding:0 5px;
+            color: #fff;
+            line-height: 20px;
+            cursor: pointer;
+            z-index: 5;
+            top: -30px;
+            @include trans(.2s);
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -30px;
+            height: 20px;
+            background:rgba(0,0,0,.5);
+            @include trans(.2s);
+        }
+        &:hover{
+            .action,&:after{
+                top: 0;
+            }
+        }
+        img {
         width: 60px;
         height: 60px;
     }
+    }
+    
 }
-input.ipt-s{
+
+input.ipt-s {
     width: 100px;
 }
-.upload-wrapper{
+
+.upload-wrapper {
     position: relative;
     float: left;
     overflow: hidden;
-    input[type=file]{
+    input[type=file] {
         position: absolute;
-        left: 0;
-        top: 0;
+        left: -8px;
+        top: 4px;
         right: 0;
         bottom: 0;
+        padding: 0;
         opacity: 0;
+        cursor: pointer;
     }
 }
-.text-tips{
+
+.text-tips {
     line-height: 20px;
 }
-.popup-html{
+
+
+.popup-html {
     display: none!important;
     position: absolute !important;
     height: 0 !important;
     width: 0 !important;
     visibility: hidden !important;
     overflow: hidden !important;
-    clip: rect(0,0,0,0)!important;
+    clip: rect(0, 0, 0, 0)!important;
 }
-.popup-spread{
+
+.popup-spread {
     padding: 10px 20px;
-    ol{
+    ol {
         padding: 8px 24px;
         line-height: 2;
         list-style: decimal;
     }
-    .qrcode{
-    width: 130px;
-    height: 130px;
-    margin: 1em;
-    margin-right: 0;
+    .qrcode {
+        width: 130px;
+        height: 130px;
+        margin: 1em;
+        margin-right: 0;
     }
-    .copy{
+    .copy {
         position: relative;
-        padding-right: 90px;
-        .btn-copy{
-        position: absolute;
-        right: -8px;
-        top: 2px;
+        padding-right: 86px;
+        .btn-copy {
+            position: absolute;
+            right: -8px;
+            top: 2px;
         }
     }
 }
+
+
+@import '_compat';

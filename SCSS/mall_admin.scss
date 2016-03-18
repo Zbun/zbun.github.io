@@ -4,13 +4,14 @@
 @import '_pagination';
 @import '_progress';
 @import '_set';
+@import '_validation';
+@import '_zTree';
 body {
     min-width: 1080px;
     background: #F0F0F0;
 }
 
 .btn {
-    margin-right: 8px;
     padding: 0 1.25em;
     min-width: 4.5em;
 }
@@ -42,6 +43,114 @@ body {
     font-size: 14px;
 }
 
+//订单相关
+.order {
+    >.status {
+        border-bottom: 2px solid $color-border;
+    }
+    .tab-switcher-horizontal {
+        //margin-bottom: -6px;
+        top: 2px;
+    }
+    .filter{
+        .statistics{
+            padding: 3px 20px;
+            border-left: 1px solid $color-border;
+            >.item{
+                >.name{
+                    margin-right: 0;
+                }
+            }
+        }
+        .filter-rule{
+            .filter-rule-sequence{
+                .btn.on{
+                    @extend .btn-info-o;
+                }
+            }
+        }
+    }
+    .table-list {
+        >.table:not(:first-child) {
+            thead {
+                th {
+                    padding: 5px 8px;
+                    text-align: left;
+                    >span {
+                        margin-right: 1em;
+                    }
+                }
+            }
+            &:hover {
+                border-color: darken($color-border, 10%);
+            }
+            tbody{
+               td{
+                vertical-align: top;
+                &:first-child{
+                    vertical-align: middle;
+                }
+            } 
+            }
+            
+            tr:not(:first-child) {
+                td {
+                    &:nth-child(4),
+                    &:nth-child(5),
+                    &:nth-child(6) {
+                        border: 0!important;
+                        margin: 0!important;
+                        padding: 0!important;
+                        display: none!important;
+                    }
+                }
+            }
+        }
+        .info-prod {
+            padding: 0 6px;
+            >.item {
+                padding: 4px 0;
+                overflow: hidden;
+            }
+            .name {
+                margin-right: 1em;
+            }
+            img {
+                width: 74px;
+                height: 74px;
+            }
+            .prod-name {
+                max-height: 44px;
+                overflow: hidden;
+                a {
+                    @include mul-line(2);
+                    color: $color;
+                    &:hover {
+                        color: $color-anchor;
+                    }
+                }
+            }
+            .prod-spec{
+                margin-top: 8px;
+            }
+        }
+        .info-pay {
+            padding: 0 6px;
+            p {
+                .tag {
+                    display: inline-block;
+                    min-width: 5em;
+                    text-align: right;
+                }
+            }
+        }
+        .info-contact{
+            @extend .info-pay;
+        }
+    }
+}
+
+//显示顺序调整区域
 .order-field {
     position: relative;
     min-width: 100px;
@@ -94,12 +203,12 @@ body {
             >.item {
                 .phone {
                     width: 160px;
-                    margin-right: 16px;
+                    margin-right: 10px;
                     margin-bottom: 10px;
                 }
                 .address {
                     width: 350px;
-                    margin-right: 8px;
+                    margin-right: 10px;
                 }
             }
         }

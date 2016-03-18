@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>商品回收站-中网易企赢</title>
+    <link rel="stylesheet" href="../../fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../CSS/mall_admin.css">
+</head>
+
+<body>
+    <div class="main">
+        <article class="body">
+            <header class='row'>
+                <h2 class='content-title'>商品回收站</h2>
+            </header>
+            <section class="action row">
+                <div class="fr search-field">
+                    <button class="btn-search icon-search"><i class="fa fa-search"></i></button>
+                    <input type="search" class='ipt-search kw' title='商品名称关键字' placeholder='输入商品名称'>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary recover-batch">批量还原</button>
+                    <button class="btn btn-primary del-batch">批量永久删除</button>
+                    <a href="javascript:;" class="ml5">返回商品管理</a>
+                </div>
+            </section>
+            <section class="data row">
+                <table class='table text-center table-bordered table-hover table-radian'>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" class='chk-all' title="全选">
+                            </th>
+                            <th>名称</th>
+                            <th>价格（元）</th>
+                            <th>置顶</th>
+                            <th>显示顺序</th>
+                            <th>自提</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class='chk' name="" id="">
+                            </td>
+                            <td>
+                                <p class='name'>Philips100K超现实显示器</p>
+                            </td>
+                            <td>
+                                <p class='price'>388888888888</p>
+                            </td>
+                            <td>是</td>
+                            <td>
+                                <span class="num">3</span>
+                            </td>
+                            <td>否</td>
+                            <td>
+                                <div class='action-field'><a class='item' href="javascript:;">编辑</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class='chk' name="" id="">
+                            </td>
+                            <td>
+                                <p class='name'>Philips100K超现实显示器</p>
+                            </td>
+                            <td>
+                                <p class='price'>388888888888</p>
+                            </td>
+                            <td>是</td>
+                            <td>
+                             <span class="num">3</span>
+                            </td>
+                            <td>否</td>
+                            <td>
+                                <div class='action-field'><a class='item' href="javascript:;">编辑</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="page-content"></div>
+                <div id="pagination" class='text-center p10'></div>
+                <div class="data-empty">
+                    <h3 class="bg bg-danger text-center p10">
+                        暂时没有相关数据
+                    </h3>
+                </div>
+            </section>
+        </article>
+    </div>
+    <div class="popup-html">
+        <article class="">
+            <section class="recover-batch">
+                <div class="row set popup-set">
+                    <dl class="item">
+                        <dt class="name">选择分类</dt>
+                        <dd class="content">
+                            <select name="" id="" style="min-width: 200px;">
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            	<option value="">选择商品分类</option>
+                            </select>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+        </article>
+    </div>
+    <script src="../../scripts/lib/jquery-1.11.3.js"></script>
+    <script src="../../scripts/lib/jquery.twbsPagination.min.js"></script>
+    <script src="../../scripts/lib/artdialog/dist/dialog-plus-min.js"></script>
+    <script>
+    $(function() {
+        //全选
+        $('.data').find('table').on('change', '.chk-all', function() {
+            $(this).closest('table').find(':checkbox').prop('checked', this.checked);
+        }).on('change', ':checkbox:not(".check-all")', function() {
+            !this.checked && $(this).closest('table').find('.chk-all').prop('checked', false);
+        })
+
+        //分页
+        $('#pagination').twbsPagination({
+            totalPages: 15,
+            visiblePages: 7,
+            first: '首页',
+            last: '末页',
+            prev: '<',
+            next: '>',
+            onPageClick: function(event, page) {
+                $('#page-content').text('Page ' + page);
+            }
+        });
+
+        //弹窗
+        $('.recover-batch').on('click', function() {
+            dialog({
+                title: '批量还原',
+                content: $('.popup-html').find('.recover-batch').html(),
+                okValue: '还原',
+                cancelValue: '取消',
+                ok: function() {},
+                cancel: function() {}
+            }).showModal();
+        });
+    })
+    </script>
+</body>
+
+</html>

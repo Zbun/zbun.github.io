@@ -1,0 +1,17 @@
+@import '_variables.scss';
+@import '_mixin.scss';
+
+$animation-duration:.2s;
+$transition-duration:.2s;
+.animation{
+	@include trans($transition-duration);
+}
+
+@-webkit-keyframes to-right-show {
+    from { @include trf-translate(-100px,0);opacity:0.2; }
+    to {  }
+}
+@keyframes to-right-show {
+    from { @include trf-translate(-100px,0);opacity:0.2; }
+    to {  }
+}

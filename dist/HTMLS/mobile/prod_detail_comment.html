@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>商品详情-中网易企赢网上商城</title>
+    <link rel="stylesheet" href="../../fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../scripts/lib/swiper3/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="../../CSS/mall.css">
+</head>
+
+<body>
+    <header id="header" class="fixed">
+        <a href="javascript:;" class="goback"></a>
+        <h1 class="title text-center">商品详情</h1>
+        <div class="action">
+            <a href="javascript:;" class="item"><i class="fa fa-share-alt"></i></a>
+        	<a href="javascript:;" class="item"><i class="fa fa-shopping-cart"></i></a>
+        	<a href="javascript:;" class="item"><i class="fa fa-user"></i></a>
+        </div>
+    </header>
+    <footer id="footer" class="fixed dis-flex btn-group">
+        <div class="item text-center bg-default">暂无库存</div>
+    </footer>
+    <div class="main">
+        <article class="goods">
+            <section class="info">
+                <div class="pic-show swiper swiper-container">
+                    <ul class="item swiper-wrapper">
+                        <li class="inner swiper-slide"><img src="../../images/t1_w600.jpg" height="398" width="600" alt="图片1"></li>
+                        <li class="inner swiper-slide"><img src="../../images/t2_w972.jpg" height="548" width="972" alt="图片2"></li>
+                        <li class="inner swiper-slide"><img src="" alt="图片3"></li>
+                        <li class="inner swiper-slide"><img src="" alt="图片4"></li>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                </div>
+               <h2 class="name">
+                   保暖防水抗寒隔热透气超轻时尚轻薄防弹高弹无褶亲子情侣可去帽套头衫
+               </h2> 
+               <div class="row clearfix">
+                   <span class="price text-danger font-biggest">￥25.22</span>
+                    <span class="tags ml10">
+                        <span class="tag tag-warning">自提</span>
+                        <span class="tag tag-warning">72小时发货</span>
+                    </span>
+                    
+               </div>
+              <div class="row"> <hr></div>
+            </section>
+            <section class="row option">
+                   <dl class="set spection">
+                       <dt class="name"><div class="text-muted">规格：</div></dt>
+                       <dd class="content"><em class="btn item on">参数1（默认）</em><em class="btn item">参数2</em><em class="btn item">参数3</em><em class="btn item">参数5</em></dd>
+                   </dl>
+                   <dl class="set count">
+                       <dt class="name"><div class="text-muted">数量：</div></dt>
+                       <dd class="content action">
+                           <span class="num-field fl">
+                               <i class="minus">-</i>
+                               <input type="tel" class="num">
+                               <i class="add">+</i>
+                           </span>
+                           <span class="fl ml10"><span class="text-muted">库存：</span>1000</span>
+                       </dd>
+                   </dl>
+                   <hr>
+               </section>
+               <section class="row about">
+                   <div class="title dis-flex tag" style='display:none'>
+                           <button class="item">商品详情</button>
+                           <button class="item on">用户评论</button>
+                   </div>
+                   <div class="content">
+                       <div class="item detail">
+                           内容内内内内网仙国地厘曙在地咽地夺
+                           <img src="../../images/t1_w600.jpg" height="398" width="600" alt="商品大图大图">
+                           <img src="../../images/t2_w972.jpg" height="548" width="972" alt="小图小图小图小图">
+                       </div>
+                       <div class="item comment on">
+                        <div class="cell">
+                            <h3 class="title"><span class="fr time text-muted">2016-01-01 01:00</span>
+                                <span class="user">未注册用户</span>
+                            </h3>
+                            <div class="content">
+                                驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装驴行必备套装
+                                <div class="img-wrapper"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></div>
+                            </div>
+                        </div>
+                       </div>
+                   </div>
+               </section>
+        </article>
+    </div>
+    <script src="../../scripts/lib/jquery-1.11.3.js"></script>
+    <script src="../../scripts/lib/swiper3/swiper-3.3.1.min.js"></script>
+    <script>
+    var mySwiper = new Swiper('.swiper-container', {
+    autoplay: 5000,//可选选项，自动滑动
+    pagination:'.swiper-pagination'
+})
+    </script>
+</body>
+
+</html>

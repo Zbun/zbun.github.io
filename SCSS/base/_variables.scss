@@ -16,7 +16,6 @@ $color-info:#1fb5ac!default;
 $color-ok:#4DCD70!default;
 $color-warning:#ff9402!default;
 $color-danger:#fb6361!default;
-$color-btn:#fff!default;
 $color-btn-default:#fff!default;
 $color-btn-hover:#e8e8e8!default;
 $color-border:#e0e0e0!default;
@@ -45,9 +44,9 @@ $color-bg-danger-text:#fb6362!default;
 
 //Text size
 $size-font-small:12px;
-$size-font-big:14px;
-$size-font-bigger:18px;
-$size-font-biggest:20px;
+$size-font-big:16px;
+$size-font-bigger:20px;
+$size-font-biggest:24px;
 
 //Height
 $height-input:32px;
@@ -61,11 +60,11 @@ $progress-bg:#e8e8e8;
 //Mobile End
 
 //Mobile
-$font-family-mobile:15px "Helvetica Neue",
+$font-family-mobile:14px "Heiti SC","Helvetica Neue",
 Helvetica,
 Arial,
 sans-serif!default;
-$line-height-mobile:1.6!default;
+$line-height-mobile:(24/14)!default;
 
 $size-font-btn-mini-mobile:14px!default;
 $size-font-btn-block-mobile:18px!default;

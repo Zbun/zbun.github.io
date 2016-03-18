@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>订单列表-中网易企赢</title>
+    <link rel="stylesheet" href="../../fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../scripts/lib/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="../../CSS/mall_admin.css">
+</head>
+
+<body>
+    <div class="main">
+        <article class="body order">
+            <header class='row'>
+                <h2 class='content-title'>订单列表</h2>
+            </header>
+            <section class="action m10 status">
+                <div class="fr search-field">
+                    <button class="btn-search icon-search text-search col2">筛选</button>
+                    <input type="search" class='ipt-search kw' title='输入电话、收货人或订单号查询' placeholder='电话、收货人、订单号'>
+                </div>
+                <div class="tab-switcher-horizontal mr10">
+                    <a href="javascript:;" class="item">待发货</a>
+                    <a href="javascript:;" class="item on">待付款</a>
+                    <a href="javascript:;" class="item">已发货</a>
+                    <a href="javascript:;" class="item">已完成</a>
+                    <a href="javascript:;" class="item">取消的订单</a>
+                    <a href="javascript:;" class="item">全部订单</a>
+                </div>
+                <button class="btn btn-primary ml10">批量导出</button>
+            </section>
+            <section class="filter row clearfix">
+                <div class="fr statistics set">
+                    <p class="item">
+                        <span class="name">总金额：</span>
+                        <em class="text-danger font-biggest content">￥23565.63</em></p>
+                    <p class="item">
+                        <span class="name">商品总数：</span>
+                        <em class="count content">938</em>
+                    </p>
+                </div>
+                <div class="filter-rule">
+                    <div class="p10">
+                        <span class="mr10">成交时间</span>
+                        <span class="date-field">
+                        <input type="text" placeholder="起始时间" class="datepicker" readonly>
+                        <i class="fa fa-calendar"></i>
+                    </span>--
+                        <span class="date-field mr10">
+                        <input type="text" placeholder="结束时间" class="datepicker"  readonly>
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                        <span class="m10">
+                    <span class="m10">订单类型</span>
+                        <select name="" id="">
+                            <option value="">全部类型</option>
+                            <option value="">全部类型</option>
+                            <option value="">全部类型</option>
+                        </select>
+                        <button class="btn btn-primary m5">搜索订单</button>
+                        </span>
+                    </div>
+                    <div class="p10 filter-rule-sequence">
+                        <span class="mr10">
+                        排序规则
+                        </span>
+                        <a href="javascript:;" class="btn on">下单时间</a>
+                        <a href="javascript:;" class="btn">支付时间</a>
+                    </div>
+                </div>
+            </section>
+            <section class="data row">
+                <div class="table-list">
+                    <table class='table text-center table-bordered table-radian table-bordered-divide'>
+                        <thead>
+                            <tr>
+                                <th>
+                                    商品
+                                </th>
+                                <th width="120px">单价（元）</th>
+                                <th width="120px">数量</th>
+                                <th width="200px">支付信息</th>
+                                <th width="180px">收货信息</th>
+                                <th width="120px">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class='table table-bordered table-radian table-bordered-divide'>
+                        <thead>
+                            <tr>
+                                <th colspan=6>
+                                    <span>订单号：66978946453</span>
+                                    <span>下单时间：2016-01-01 16：01：01</span>
+                                    <span>订单类型：秒杀</span>
+                                    <span>
+                                            <button class="btn btn-warning">自提</button>
+                                            <button class="btn btn-warning">积分</button>
+                                            <button class="btn btn-warning">货到付款</button>
+                                        </span>
+                                    <span class="text-warning">待发货</span>
+                                    <span class="ml10">应付款：<em class="text-danger font-bigger price">￥2111.25</em><span>（含运费：5.00）</span></span>
+                                    <span><button class="btn btn-warning">改价</button></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                                <td width="200px">
+                                    <div class="info-pay">
+                                        <p><span class="tag">商品金额：</span>656646.25</p>
+                                        <p><span class="tag">运&#12288;&#12288;费：</span>656646.25</p>
+                                        <p><span class="tag">总&#12288;&#12288;计：</span><em class="price font-big text-danger">￥89886.50</em></p>
+                                        <p class="mt10">
+                                            <span class="tag">积分抵扣：</span>-2122.00
+                                        </p>
+                                        <p><span class="tag">储&nbsp;值&nbsp;卡：</span>-1123.01</p>
+                                        <p><span class="tag">优&nbsp;惠&nbsp;券：</span>-123.01</p>
+                                        <p><span class="tag">改价金额：</span>-23.01</p>
+                                    </div>
+                                </td>
+                                <td width="180px">
+                                    <div class="info-contact text-left">
+                                        <p> <span>永和国际</span>
+                                            <span>13803800138</span></p>
+                                        <p>
+                                            河南郑州金水区文化路9号永和国际2708室
+                                        </p>
+                                        <p class="text-muted">（备注：请发顺丰，不要平邮）</p>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <div class='action-field text-center'>
+                                        <div><a class='item' href="javascript:;">取消交易</a></div>
+                                        <div><a class='item' href="javascript:;">现在发货</a></div>
+                                        <div><a class='item' href="javascript:;">交易完成</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class='table table-bordered table-radian table-bordered-divide'>
+                        <thead>
+                            <tr>
+                                <th colspan=6>
+                                    <span>订单号：66978946453</span>
+                                    <span>下单时间：2016-01-01 16：01：01</span>
+                                    <span>订单类型：秒杀</span>
+                                    <span>
+                                            <button class="btn btn-warning">自提</button>
+                                            <button class="btn btn-warning">积分</button>
+                                            <button class="btn btn-warning">货到付款</button>
+                                        </span>
+                                    <span class="text-warning">待发货</span>
+                                    <span class="ml10">应付款：<em class="text-danger font-bigger price">￥2111.25</em><span>（含运费：5.00）</span></span>
+                                    <span><button class="btn btn-warning">改价</button></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                                <td width="200px" rowspan=2>
+                                    <div class="info-pay">
+                                        <p><span class="tag">商品金额：</span>656646.25</p>
+                                        <p><span class="tag">运&#12288;&#12288;费：</span>656646.25</p>
+                                        <p><span class="tag">总&#12288;&#12288;计：</span><em class="price font-big text-danger">￥89886.50</em></p>
+                                        <p class="mt10">
+                                            <span class="tag">积分抵扣：</span>-2122.00
+                                        </p>
+                                        <p><span class="tag">储&nbsp;值&nbsp;卡：</span>-1123.01</p>
+                                        <p><span class="tag">优&nbsp;惠&nbsp;券：</span>-123.01</p>
+                                        <p><span class="tag">改价金额：</span>-23.01</p>
+                                    </div>
+                                </td>
+                                <td width="180px" rowspan=2>
+                                    <div class="info-contact text-left">
+                                        <p> <span>永和国际</span>
+                                            <span>13803800138</span></p>
+                                        <p>
+                                            河南郑州金水区文化路9号永和国际2708室
+                                        </p>
+                                        <p class="text-muted">请发顺丰，不要平邮</p>
+                                    </div>
+                                </td>
+                                <td width="120px" rowspan=2>
+                                    <div class='action-field text-center'>
+                                        <div><a class='item' href="javascript:;">取消交易</a></div>
+                                        <div><a class='item' href="javascript:;">现在发货</a></div>
+                                        <div><a class='item' href="javascript:;">交易完成</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class='table table-bordered table-radian table-bordered-divide'>
+                        <thead>
+                            <tr>
+                                <th colspan=6>
+                                    <span>订单号：66978946453</span>
+                                    <span>下单时间：2016-01-01 16：01：01</span>
+                                    <span>订单类型：秒杀</span>
+                                    <span>
+                                            <button class="btn btn-warning">自提</button>
+                                            <button class="btn btn-warning">积分</button>
+                                            <button class="btn btn-warning">货到付款</button>
+                                        </span>
+                                    <span class="text-warning">待发货</span>
+                                    <span class="ml10">应付款：<em class="text-danger font-bigger price">￥2111.25</em><span>（含运费：5.00）</span></span>
+                                    <span><button class="btn btn-warning">改价</button></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                                <td width="200px" rowspan=3>
+                                    <div class="info-pay">
+                                        <p><span class="tag">商品金额：</span>656646.25</p>
+                                        <p><span class="tag">运&#12288;&#12288;费：</span>656646.25</p>
+                                        <p><span class="tag">总&#12288;&#12288;计：</span><em class="price font-big text-danger">￥89886.50</em></p>
+                                        <p class="mt10">
+                                            <span class="tag">积分抵扣：</span>-2122.00
+                                        </p>
+                                        <p><span class="tag">储&nbsp;值&nbsp;卡：</span>-1123.01</p>
+                                        <p><span class="tag">优&nbsp;惠&nbsp;券：</span>-123.01</p>
+                                        <p><span class="tag">改价金额：</span>-23.01</p>
+                                    </div>
+                                </td>
+                                <td width="180px" rowspan=3>
+                                    <div class="info-contact text-left">
+                                        <p> <span>永和国际</span>
+                                            <span>13803800138</span></p>
+                                        <p>
+                                            河南郑州金水区文化路9号永和国际2708室
+                                        </p>
+                                        <p class="text-muted">请发顺丰，不要平邮</p>
+                                    </div>
+                                </td>
+                                <td width="120px" rowspan=3>
+                                    <div class='action-field text-center'>
+                                        <div><a class='item' href="javascript:;">取消交易</a></div>
+                                        <div><a class='item' href="javascript:;">现在发货</a></div>
+                                        <div><a class='item' href="javascript:;">交易完成</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                                <td width="200px" rowspan=2>
+                                    <div class="info-pay">
+                                        <p><span class="tag">商品金额：</span>656646.25</p>
+                                        <p><span class="tag">运&#12288;&#12288;费：</span>656646.25</p>
+                                        <p><span class="tag">总&#12288;&#12288;计：</span><em class="font-big text-danger">￥89886.50</em></p>
+                                        <p class="mt10">
+                                            <span class="tag">积分抵扣：</span>-2122.00
+                                        </p>
+                                        <p><span class="tag">储&nbsp;值&nbsp;卡：</span>-1123.01</p>
+                                        <p><span class="tag">优&nbsp;惠&nbsp;券：</span>-123.01</p>
+                                        <p><span class="tag">改价金额：</span>-23.01</p>
+                                    </div>
+                                </td>
+                                <td width="180px" rowspan=2>
+                                    <div class="info-contact text-left p10">
+                                        <p> <span>永和国际</span>
+                                            <span>13803800138</span></p>
+                                        <p>
+                                            河南郑州金水区文化路9号永和国际2708室
+                                        </p>
+                                        <p class="text-muted">请发顺丰，不要平邮</p>
+                                    </div>
+                                </td>
+                                <td width="120px" rowspan=2>
+                                    <div class='action-field text-center'>
+                                        <div><a class='item' href="javascript:;">取消交易</a></div>
+                                        <div><a class='item' href="javascript:;">现在发货</a></div>
+                                        <div><a class='item' href="javascript:;">交易完成</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="info-prod set">
+                                        <div class="item">
+                                            <div class="name">
+                                                <a href="javascript:;"><img src="../../images/t1_w600.jpg" height="398" width="600" alt=""></a>
+                                            </div>
+                                            <div class="content">
+                                                <p class="prod-name">
+                                                    <a href="javascript:;">超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器超清100K超视膜无闪3D曲面超薄显示器</a>
+                                                </p>
+                                                <p class="prod-spec text-muted">【规格】10000寸超级全息</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="120px">
+                                    <p class='price text-center'>￥998.68</p>
+                                </td>
+                                <td width="120px">
+                                    <p class="text-center">365</p>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="page-content"></div>
+                <div id="pagination" class='text-center p10'></div>
+                <div class="data-empty">
+                    <h3 class="bg bg-danger text-center p10">
+                        暂时没有相关数据
+                    </h3>
+                </div>
+            </section>
+        </article>
+    </div>
+    <div class="popup-html">
+        <article class="">
+        </article>
+    </div>
+    <script src="../../scripts/lib/jquery-2.2.1.min.js"></script>
+    <script src="../../scripts/lib/jquery.twbsPagination.min.js"></script>
+    <script src="../../scripts/lib/artdialog/dist/dialog-plus-min.js"></script>
+    <script src="../../scripts/lib/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+    <script>
+    $(function() {
+        $.datetimepicker.setLocale('ch');
+        $('.datepicker').datetimepicker();
+
+        //标签切换
+        $('.tab-switcher-horizontal').on('click', '>.item', function() {
+            $(this).siblings().removeClass('on').end().addClass('on');
+        });
+
+        //搜索排序规则切换
+        $('.filter-rule-sequence').find('.btn').on('click',function(){
+            $(this).addClass('on').siblings('.btn').removeClass('on');
+        })
+
+        //分页
+        $('#pagination').twbsPagination({
+            totalPages: 15,
+            visiblePages: 7,
+            first: '首页',
+            last: '末页',
+            prev: '<',
+            next: '>',
+            onPageClick: function(event, page) {
+                $('#page-content').text('Page ' + page);
+            }
+        });
+
+        //弹窗
+        $('.recover-batch').on('click', function() {
+            dialog({
+                title: '批量还原',
+                content: $('.popup-html').find('.recover-batch').html(),
+                okValue: '还原',
+                cancelValue: '取消',
+                ok: function() {},
+                cancel: function() {}
+            }).showModal();
+        });
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+	<title>圈</title>
+</head>
+<style>
+	body{
+		background: #233;
+	}
+	#wrapper{
+		position: relative;
+		width: 200px;
+		height: 300px;
+		border: 1px solid #fff;
+	}
+	.inner{
+		position: absolute;
+		right: -40px;
+		bottom: 40px;
+		width: 80px;
+		height: 80px;
+		background: transparent;
+		overflow: hidden;
+	}
+	.core{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border: 3px solid #369;
+		border-color: #369 transparent #369 #369;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		border-radius: 100%;
+	}
+</style>
+<body>
+	<div id="wrapper">
+		<div class="inner">
+			<div class="core"></div>
+		</div>
+	</div>
+
+
+<style>
+	
+.square, .square > div { box-sizing: border-box; }
+.square { 
+    width: 300px; 
+    position: fixed; 
+    top: calc(50vh - 200px);
+    left: calc(50vw - 150px);
+    overflow: hidden;
+}
+.square > .s-top { 
+    border: 1px solid #fff;
+    height: 170px;
+    border-radius: 5px 5px 0 0;
+    border-width: 1px 1px 0 1px; 
+}
+.square > .s-middle { 
+    border-left: 1px solid #fff; 
+    height: 60px;
+}
+.square > .s-bottom { 
+    border: 1px solid #fff;
+    height: 170px;
+    border-radius: 0 0 5px 5px;
+    border-width: 0px 1px 1px 1px; 
+}
+.square > .s-half-circle { 
+    border: 1px solid #fff;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    border-width: 1px 0px 1px 1px;
+    border-radius: 30px 0 0 30px;
+    top: calc(50% - 30px);
+    right: 0;
+}
+.square > .s-background {
+    border: 360px solid rgba(255,255,255,0.3);
+    position: absolute;
+    width: 780px;
+    height: 780px;
+    border-radius: 50%;
+    top: calc(50% - 390px);
+    right: -390px;
+}
+.circle { 
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% + 125px);
+    background-color: rgba(255,255,255,.3);
+    box-sizing: border-box;
+}
+</style>
+	<div class="square">
+    <div class="s-top"></div>
+    <div class="s-middle"></div>
+    <div class="s-bottom"></div>
+    <div class="s-half-circle"></div>
+    <div class="s-background"></div>
+</div>
+<div class="circle"></div>
+</body>
+</html>
