@@ -18,6 +18,13 @@ var gulp = require('gulp'),
 
 var webpackConfig=require('./webpack.config.js');
 
+var opts={
+  destPath:'./dist/',
+  minRename:{
+    suffix:'.min'
+  },
+}
+
 //清理文件
 gulp.task('clean',function(cb){
 	del(['build/css','build/scripts'],cb);
@@ -38,7 +45,7 @@ gulp.task("default",['browserSync'],function(){
 gulp.task('rev',function(){
   gulp.src('./src/htmls/pc/*.html')
   .pipe(revAppend())
-  .pipe(gulp.dest('./dist/htmls/pc/'));
+  .pipe(gulp.dest(opts.destPath+'htmls/pc/'));
 })
 
 gulp.task("greet",function(){
@@ -56,7 +63,7 @@ gulp.task('unlify', function () {
       .pipe(uglify())
       .pipe(rename({suffix:'.min'}))
       .pipe(sourcemaps.write('../maps'))
-      .pipe(gulp.dest('./dist/scripts'));
+      .pipe(gulp.dest(opts.destPath+'scripts'));
 });
 
 gulp.task('minify',function(){
@@ -65,7 +72,7 @@ gulp.task('minify',function(){
                 exclude:['tasks'],
                 ignoreFiles:['.combo.js','-min.js']
         }))
-        .pipe(gulp.dest('./dist/scripts'));
+        .pipe(gulp.dest(opts.destPath+'scripts'));
 })
 
 gulp.task("minifycss",function(){
@@ -76,7 +83,7 @@ gulp.task('concat',function(){
    gulp.src('./scripts/*.js')
    .pipe(uglify())
    .pipe(concat('site.js'))
-   .pipe(gulp.dest('./dist/scripts'));
+   .pipe(gulp.dest(opts.destPath+'scripts'));
 });
 
 /*预处理系列*/
@@ -85,13 +92,13 @@ gulp.task('coffee',function(){
    .pipe(sourcemaps.init())
    .pipe(coffee({bare:true}).on('error',gutil.log))
    .pipe(sourcemaps.write('../maps'))
-   .pipe(gulp.dest('./dist/scripts'));
+   .pipe(gulp.dest(opts.destPath+'scripts'));
 });
 
 gulp.task('sass',function(){
     return gulp.src('./scss/*.scss')
     .pipe(sass({outputStyle:'compressed'}).on('error',sass.logError))
-    .pipe(gulp.dest('./dist/css'));
+    .pipe(gulp.dest(opts.destPath+'css'));
 
   //以下为传给browseSync用
   // return gulp.src("app/scss/*.scss")

@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import 'baseSCSS';
+@import '_animation.scss';
 $font-size: 12px;
 $line-height: (20/12);
 $btn-line-height:26px;
@@ -379,14 +380,18 @@ a {
     margin: 30px;
     border: 1px solid $color-border;
     background: #fff;
-    .body {
+    >.body {
+        position: relative;
         min-height: 600px;
         padding: 10px;
         overflow: hidden;
+        background:inherit;
+        z-index: 2;
     }
-    .side {
+    >.side {
         &+.body {
             border-left: 1px solid $color-border;
+            @include anim(to-right-show .2s);
         }
     }
 }

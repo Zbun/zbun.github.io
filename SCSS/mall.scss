@@ -92,7 +92,32 @@
     }
 }
 
+.cart {
+	.pic-list{
+		>.item{
+			.inner{
+				img{
+					width: 90px;
+					height: 80px;
+				}
+				.del{
+					padding: 7px 10px;
+					line-height: 1;
+				}
+				.content{
+					.specification{
+						margin-top: 2px;
+					}
+				}
+			}
+		}
+	}
+}
+
 .count {
+	>.name{
+		line-height: 28px;
+	}
     >.content {
         line-height: 30px;
     }
@@ -107,10 +132,11 @@
     .minus,
     .add {
         float: left;
-        height: 100%;
-        padding: 0 14px;
+        width: 1.2em;
         border-right: 1px solid $color-border;
-        font-size: 18px;
+        line-height: 26px;
+        text-align: center;
+        font-size: 24px;
     }
     .add {
         border-left: 1px solid $color-border;
@@ -118,8 +144,8 @@
     }
     .num {
         float: left;
-        height: 30px;
-        max-width: 3em;
+        height: 26px;
+        max-width: 2.6em;
         border: 0;
         text-align: center;
         -webkit-border-radius: 0;

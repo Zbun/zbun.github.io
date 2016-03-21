@@ -18,7 +18,7 @@
                 <h3 class="content-title">全部分类<a class="ml5" href="javascript:;" id="addCategory" title='添加分类'><i class="fa fa-plus"></i></a></h3>
             </header>
             <ul class='tree' id="tree" v-cloak>
-                    <li class='item' v-for='item in tree.child'>
+                <li class='item' v-for='item in tree.child'>
                     <dl class='cell' data-id="{{item.id}}">
                         <dt class="tree-title cat-title on">
                             <p class='title-text'><span class='inner'>{{item.name}}</span></p>
@@ -202,6 +202,28 @@
     <script src="../../scripts/lib/ztree/js/jquery.ztree.all.min.js"></script>
     <script src="../../scripts/lib/vue.js"></script>
     <script>
+    function SHOW(str) {
+        this.init(str);
+    }
+    SHOW.prototype = {
+        init: function(str) {
+            this.str = str;
+        },
+        show: function() {
+            var arg=arguments;
+            console.log(this.str);
+            //console.log(arg);
+            typeof arg[0].callback=='function' && arg[0].callback();
+            return this;
+        }
+    }
+
+    var show = new SHOW('haha');
+    show.show({
+        callback:function(){
+           console.log('callback');
+        }
+    })
 
     var treeData = {
         id: 32565,
@@ -212,27 +234,26 @@
             child: [{
                 id: 123654,
                 name: '一级子-电视',
-            },{
+            }, {
                 id: 123654,
                 name: '一级子-流行洗衣机',
-            },{
+            }, {
                 id: 123654,
                 name: '一级子-冰箱',
-            },]
+            }, ]
         }, {
             id: 123457,
             name: '一级2-出行',
             child: [{
                 id: 123654,
                 name: '二级子1-公交',
-            },{
+            }, {
                 id: 123654,
                 name: '二级子2-飞机',
-            },{
+            }, {
                 id: 123654,
                 name: '二级子3-火车',
-            },
-            ]
+            }, ]
         }, {
             id: 123458,
             name: '一级3-饭吃',
@@ -247,25 +268,25 @@
         //树切换
         $('.tree').on('click', '.tree-title', function() {
             $(this).toggleClass('on');
-            if($(this).siblings('.tree-content').children().length<=0) {
+            if ($(this).siblings('.tree-content').children().length <= 0) {
                 $(this).closest('.tree').find('.active').removeClass('active');
                 $(this).addClass('active');
             }
-        }).on('click','.tree-content>.item',function(){
+        }).on('click', '.tree-content>.item', function() {
             $(this).closest('.tree').find('.active').removeClass('active');
             $(this).addClass('active');
         })
 
-        var tree=new Vue({
-    el:'#tree',
-    data:{
-       tree: treeData
-       ,},
-       created:function(){
-        //$('.tree').find('.item').find('.tree-title').click();
-       }
-})
-        //全选
+        var tree = new Vue({
+                el: '#tree',
+                data: {
+                    tree: treeData,
+                },
+                created: function() {
+                    //$('.tree').find('.item').find('.tree-title').click();
+                }
+            })
+            //全选
         $('.data').find('table').on('change', '.chk-all', function() {
             $(this).closest('table').find(':checkbox').prop('checked', this.checked);
         }).on('change', ':checkbox:not(".check-all")', function() {
@@ -288,40 +309,42 @@
         //弹窗
         //
         //
-        $('.del-batch').on('click',function(){
+        $('.del-batch').on('click', function() {
             dialog({
-                skin:'mini',
-                title:'呆呵 ',
-                content:'点击确定将数据库级删除数据，确认否？',
-                ok:function(){
+                skin: 'mini',
+                title: '呆呵 ',
+                content: '点击确定将数据库级删除数据，确认否？',
+                ok: function() {
                     alert("哈哈，逗你玩的");
                 },
-                cancel:function(){
+                cancel: function() {
                     alert("取消也没用，成功删除");
                 },
             }).showModal();
         })
 
-        $('.remove-batch').on('click',function(){
+        $('.remove-batch').on('click', function() {
             dialog({
-                        title:"呵呵",
-                        modal:'mini-tips',
-                        ok:function(){
+                title: "呵呵",
+                modal: 'mini-tips',
+                ok: function() {
 
-                        }
-                    }).showModal();
+                }
+            }).showModal();
         })
 
         $('#addCategory').on('click', function() {
             dialog({
                 title: '添加分类',
                 content: $('.popup-html').find('.category').find('.add').html(),
-                ok: function() {alert("OK,Google Glass!")},
+                ok: function() {
+                    alert("OK,Google Glass!")
+                },
                 cancel: function() {
                     dialog({
-                        title:"呵呵",
-                        skin:'mini-tips',
-                        ok:function(){
+                        title: "呵呵",
+                        skin: 'mini-tips',
+                        ok: function() {
 
                         }
                     }).showModal();
@@ -333,7 +356,7 @@
             dialog({
                 title: '投放活动',
                 // className:'tiny',
-                
+
                 width: 400,
                 content: $('.popup-html').find('.action').find('.spread').html(),
             }).showModal();
@@ -341,8 +364,7 @@
 
     })
 
-console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$   $$$$   $$$$$$$     $$$$$$$   $$$$         $$$$             $$\n$$$$$   $$$   $$$$$$$$   $   $$$$$   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$\n$$$$   $$$  $$$$$$$$$   $$$   $$$   $$$$        $$$$$$$$$$   $$$$$$$$$\n$$$   $$$$$   $$$$$$   $$$$$   $   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$$$\n$$   $$$$$$$   $$$$   $$$$$$$     $$$$         $$$$$$$$$   $$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-
+    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$   $$$$   $$$$$$$     $$$$$$$   $$$$         $$$$             $$\n$$$$$   $$$   $$$$$$$$   $   $$$$$   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$\n$$$$   $$$  $$$$$$$$$   $$$   $$$   $$$$        $$$$$$$$$$   $$$$$$$$$\n$$$   $$$$$   $$$$$$   $$$$$   $   $$$$   $$$$$$$$$$$$$$$   $$$$$$$$$$\n$$   $$$$$$$   $$$$   $$$$$$$     $$$$         $$$$$$$$$   $$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
     </script>
 </body>
 

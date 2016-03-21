@@ -385,6 +385,7 @@ a {
             >.content {
                 overflow: hidden;
                 >.title {
+                    line-height: 1.3;
                     font-weight: 400;
                     font-size: 13px;
                     @include mul-line(2);
