@@ -56,7 +56,7 @@ input[type=color],
 input[type=time],
 button,
 textarea,
-select {
+select,.ui-input {
     border: 1px solid $color-input-border;
     padding: 4px;
     font-size: inherit;
@@ -82,6 +82,7 @@ select {
 }
 
 input[readonly] {
+    background:#eee;
     &:focus,
     &:active {
         border-color: $color-border!important;
@@ -269,12 +270,18 @@ img {
     +.btn{
         margin-left: 6px;
     }
+    +.btn.block{
+        margin-left: 0;
+    }
 }
 
 .btn.block {
     display: block;
     margin: 10px auto;
     font-size: 16px;
+    +.btn{
+        margin-left: 0;
+    }
 }
 
 $color-btn-default-bg:$color-btn-default!default;
@@ -738,6 +745,7 @@ $tag-color in(tag-warning-o:$color-warning, tag-danger-o:$color-danger, tag-info
         }
     }
 }
+
 
 //vue 数据区域编译前隐藏
 [v-cloak] {

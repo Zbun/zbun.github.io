@@ -114,6 +114,24 @@
 	}
 }
 
+.order{
+	.pic-list{
+		>.item{
+			>.inner{
+				img{
+					width: 80px;
+					height: 70px;
+				}
+				>.content{
+					.spec{
+						left: 80px;
+					}
+				}
+			}
+		}
+	}
+}
+
 .count {
 	>.name{
 		line-height: 28px;

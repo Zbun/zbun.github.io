@@ -10,3 +10,20 @@
 		display: block;
 	}
 }
+.speclist{
+	th,td{
+		vertical-align: top;
+	}
+	.input-validation-error{
+		border-color: $color-danger!important;
+	}
+	.ipt-wrapper{
+		display: inline-block;
+		position: relative;
+		.field-validation-error{
+			display: block;
+			white-space: nowrap;
+			pointer-events:none;
+		}
+	}
+}

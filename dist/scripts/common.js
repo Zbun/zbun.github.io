@@ -293,6 +293,7 @@ style.innerText='.popup .btns{margin: 10px 0; text-align: center; font-size: 0; 
     var div = document.createElement('div'),
         className = 'popup ' + opt.theme.toLowerCase();
 
+        console.log(mask);
     if (!mask) {
         className += ' nomask';
     }
@@ -338,4 +339,83 @@ style.innerText='.popup .btns{margin: 10px 0; text-align: center; font-size: 0; 
     return div;
 }
 
+//加载等待效果，var spin1=new SPIN('.loadmore','loadMore');
+(function() {
+        var spinOpts = {
+            defaultOpt: {
+                lines: 10 // The number of lines to draw
+                    ,
+                length: 3 // The length of each line
+                    ,
+                width: 2 // The line thickness
+                    ,
+                radius: 3 // The radius of the inner circle
+                    ,
+                scale: 1 // Scales overall size of the spinner
+                    ,
+                corners: 1 // Corner roundness (0..1)
+                    ,
+                color: '#333' // #rgb or #rrggbb or array of colors
+                    ,
+                opacity: 0.25 // Opacity of the lines
+                    ,
+                rotate: 0 // The rotation offset
+                    ,
+                direction: 1 // 1: clockwise, -1: counterclockwise
+                    ,
+                speed: 1 // Rounds per second
+                    ,
+                trail: 50 // Afterglow percentage
+                    ,
+                fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+                    ,
+                zIndex: 2e9 // The z-index (defaults to 2000000000)
+                    ,
+                className: 'spinner' // The CSS class to assign to the spinner
+                    ,
+                top: '50%' // Top position relative to parent
+                    ,
+                left: '50%' // Left position relative to parent
+                    ,
+                shadow: false // Whether to render a shadow
+                    ,
+                hwaccel: false // Whether to use hardware acceleration
+                    ,
+                position: 'absolute' // Element positioning
+            },
+            _getLoadMore: function() {
 
+            },
+            loadMore: function() {
+                var o = Object.create(this.defaultOpt);
+                o.className = 'spinner-loadmore';
+                return o;
+            }
+        };
+
+        function SPIN(target, spinType) {
+           if(typeof Spinner!=='function' ){
+            console.log('需要引入spin.js哦');
+            return;
+           }
+            this.init(target, spinType);
+        }
+        SPIN.prototype.init = function(target, spinType) {
+            this.target = target.nodeType ? target : document.querySelector(target);
+            if(!this.target){
+                return;
+            }
+            this.spinOpt = spinType ? spinOpts[spinType]() : spinOpts.defaultOpt;
+            this.target.classList.add(this.spinOpt.className);
+            this.spinner = new Spinner(this.spinOpt).spin(this.target);
+        }
+        SPIN.prototype.stop = function() {
+            if(!this.target){
+                return;
+            }
+            this.target.classList.remove(this.spinOpt.className);
+            this.spinner.stop();
+        }
+
+        window.SPIN = SPIN;
+    })();

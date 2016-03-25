@@ -9,11 +9,11 @@ $btn-big-line-height:34px;
 $btn-bigger-font-size:18px;
 $btn-bigger-line-height:38px;
 $color-table-anchor:#0990ca;
-
-::selection{
+::selection {
     // background:lightcoral;
     // color: #fff;
 }
+
 body {
     @include pcBody;
 }
@@ -72,7 +72,6 @@ a {
     font-size: 16px;
     font-weight: 400;
 }
-
 
 .tree {
     line-height: 30px;
@@ -209,10 +208,10 @@ a {
                 color: #fff;
                 .action {
                     .icon {
-                       color: #f2f2f2;
-                    &:hover {
-                        color: #fff;
-                    }
+                        color: #f2f2f2;
+                        &:hover {
+                            color: #fff;
+                        }
                     }
                 }
             }
@@ -231,7 +230,7 @@ a {
     td {
         padding: 6px 4px;
         line-height: 32px;
-        p{
+        p {
             line-height: 24px;
         }
     }
@@ -279,10 +278,12 @@ a {
         border-top: 1px solid $color-table-border;
     }
 }
-.table-bordered-divide{
-    th,td{
+
+.table-bordered-divide {
+    th,
+    td {
         border-left: 1px solid $color-table-border;
-        &:first-child{
+        &:first-child {
             border-left: 0;
         }
     }
@@ -296,11 +297,12 @@ a {
     }
 }
 
-.table-list{
-    >.table{
-        margin-bottom: 20px;
+.table-list {
+    >.table {
+        margin-bottom: 16px;
     }
 }
+
 .search-field {
     position: relative;
     .ipt-search {
@@ -323,7 +325,7 @@ a {
             padding-top: 1px;
             border: 0;
             border-left: 1px solid $color-border;
-            background:$color-table-thead;
+            background: $color-table-thead;
             white-space: nowrap;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
@@ -337,7 +339,7 @@ a {
         }
         &.text-search {
             width: auto;
-            padding: 0 1em;
+            padding: 0 1em!important;
             color: $color;
             font-size: $font-size;
             &+.ipt-search {
@@ -354,18 +356,18 @@ a {
     }
 }
 
-.date-field{
+.date-field {
     position: relative;
     padding-right: 4px;
-    input{
+    input {
         margin-right: -28px;
         padding-right: 28px;
     }
-    i{width: 20px;
+    i {
+        width: 20px;
         font-size: 16px;
-    color:#bbb;
-    pointer-events:none;
-
+        color: #bbb;
+        pointer-events: none;
     }
 }
 
@@ -385,13 +387,13 @@ a {
         min-height: 600px;
         padding: 10px;
         overflow: hidden;
-        background:inherit;
+        background: inherit;
         z-index: 2;
     }
     >.side {
         &+.body {
             border-left: 1px solid $color-border;
-            @include anim(to-right-show .2s);
+            //@include anim(fadeInRight .2s);
         }
     }
 }
@@ -455,15 +457,15 @@ a {
 
 .img-list.upload {
     line-height: 1;
-    .img-wrapper{
+    .img-wrapper {
         display: inline-block;
         position: relative;
         margin: 10px 5px 0 0;
         overflow: hidden;
-        .action{
+        .action {
             position: absolute;
             right: 0;
-            padding:0 5px;
+            padding: 0 5px;
             color: #fff;
             line-height: 20px;
             cursor: pointer;
@@ -471,27 +473,27 @@ a {
             top: -30px;
             @include trans(.2s);
         }
-        &:after{
+        &:after {
             content: '';
             position: absolute;
             left: 0;
             right: 0;
             top: -30px;
             height: 20px;
-            background:rgba(0,0,0,.5);
+            background: rgba(0, 0, 0, .5);
             @include trans(.2s);
         }
-        &:hover{
-            .action,&:after{
+        &:hover {
+            .action,
+            &:after {
                 top: 0;
             }
         }
         img {
-        width: 60px;
-        height: 60px;
+            width: 60px;
+            height: 60px;
+        }
     }
-    }
-    
 }
 
 input.ipt-s {
@@ -518,7 +520,162 @@ input.ipt-s {
     line-height: 20px;
 }
 
+.tab-switcher {
+    position: relative;
+    border: 1px solid $color-border;
+    line-height: 2;
+    background: #fff;
+    overflow: hidden;
+    opacity: .95;
+    >.title {
+        position: relative;
+        margin-bottom: -2px;
+        overflow: hidden;
+        z-index: 3;
+        >.item {
+            display: table-cell;
+            padding: 2px 8px;
+            border-bottom: 2px solid $color-border;
+            color: $color;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+            &:hover {
+                color: $color-primary;
+            }
+            &:last-child {
+                border-right-width: 0;
+            }
+            &.on {
+                color: $color-primary;
+                border-bottom-color: currentcolor;
+            }
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    >.content {
+        border-top: 2px solid $color-border;
+        overflow: hidden;
+        >.item {
+            display: none;
+            &:first-child {
+                display: block;
+            }
+            >.cell {
+                display: inline-block;
+                min-width: 5em;
+                padding: 2px;
+                text-align: center;
+                &:hover {
+                    color: $color-primary;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
 
+.tab-switcher-vertical{
+    //@extend .tab-switcher;
+    >.title{
+        float: left;
+        margin-bottom: 0;
+        margin-right: -1px;
+        >.item{
+            display: block;
+            border: 1px solid $color-border;
+            border-width: 0 1px 1px 0;
+            &:last-child{
+                border-bottom: 0;
+                border-right-width: 1px;
+            }
+            &.on{
+                border-bottom-color: $color-border;
+                border-right-color: #fff;
+            }
+        }
+    }
+    >.content{
+        padding: 0 5px;
+        border: 0;
+        border-left: 1px solid $color-border;
+        >.item{
+            >.cell{
+                min-width: auto;
+                padding: 2px 5px;
+            }
+        }
+    }
+}
+
+.arrow-down {
+    position: relative;
+    >.arrow-down-title {
+        display: inline-block;
+        position: relative;
+        input {
+            padding-right: 30px;
+        }
+        >.icon {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            bottom: 1px;
+            width: 28px;
+            background: #eee;
+            cursor: pointer;
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: 50%;
+                right: 9px;
+                border-style: solid;
+                border-width: 6px 5px 0 5px;
+                border-color: #555 transparent;
+                @include trf-translate(0, -50%);
+            }
+        }
+    }
+    >.arrow-down-content{
+        outline: 0;
+        display: none;
+    }
+}
+
+// .dropdown-search{
+//     position: relative;
+//     z-index: 10;
+//     &-title{
+//     }
+//     &-content{
+//         position: absolute;
+//         top: 100%;
+//         max-height: 100px;
+//         overflow-x: hidden;
+//         margin-top: -1px;
+//         border: 1px solid $color-border;
+//         background:#fff;
+//         -webkit-border-radius: 0 0 $border-radius $border-radius;
+//         -moz-border-radius: 0 0 $border-radius $border-radius;
+//         border-radius: 0 0 $border-radius $border-radius;
+//         >.item{
+//             display: block;
+//             margin-top: -1px;
+//             padding: 8px;
+//             border-top: 1px solid $color-border;
+//             line-height: 1.5;
+//             &:hover{
+//                 background:#eee;
+//             }
+//         }
+//     }
+// }
 .popup-html {
     display: none!important;
     position: absolute !important;
@@ -552,6 +709,5 @@ input.ipt-s {
         }
     }
 }
-
 
 @import '_compat';

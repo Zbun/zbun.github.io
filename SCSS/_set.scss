@@ -11,7 +11,7 @@
             text-align: right;
         }
         >.content {
-            display: block;
+            position: relative;
             overflow: hidden;
             input[type=text] {
                 min-width: 250px;

@@ -175,5 +175,13 @@
 }
 
 @mixin loadmore {
+    position: relative;
+    border: 0;
     color: #666;
+    &:hover{
+        background:#fff;
+    }
+    &.spinner-loadmore{
+        text-indent: -2000px;
+    }
 }

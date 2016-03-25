@@ -233,3 +233,22 @@ body {
         }
     }
 }
+
+
+.info-express {
+    overflow: visible!important;
+    z-index: 10;
+    .tab-switcher-vertical {
+        position: absolute;
+        top: 100%;
+        left: 7.5em;
+        width: 250px;
+    }
+}
+
+//编辑器中输入框高度修正
+.ke-dialog-body{
+    input[type=text]{
+        height: 24px;
+    }
+}

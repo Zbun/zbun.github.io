@@ -1,5 +1,6 @@
 @import '_variables.scss';
 @import 'baseSCSS.scss';
+@import '_animation.scss';
 $line-height: (20/12);
 $btn-line-height:26px;
 $btn-big-font-size:16px;
@@ -433,7 +434,6 @@ a {
             width: 100%;
             text-align: center;
             img {
-                height: 160px;
                 width: 100%;
             }
         }

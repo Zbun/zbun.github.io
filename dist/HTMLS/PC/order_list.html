@@ -74,7 +74,7 @@
             </section>
             <section class="data row">
                 <div class="table-list">
-                    <table class='table text-center table-bordered table-radian table-bordered-divide'>
+                    <table class='js-data-head-fixed table text-center table-bordered table-radian table-bordered-divide'>
                         <thead>
                             <tr>
                                 <th>
@@ -426,6 +426,22 @@
         <article class="">
         </article>
     </div>
+    <div class='scrollToTop' style='position: fixed;right: 1px;bottom: 30px;border:1px solid #e0e0e0;text-align: center;opacity: 0;z-index: 20;-webkit-transition:.2s;transition:.2s;'>
+        <div class="item">
+            <span class="icon"></span>
+            <a href='javascript:window.scrollTo(0,0);' class="text" title="返回顶部" style="display: inline-block;width: 28px;padding: 3px;background: #fff;text-decoration: none;">返回顶部</a>
+        </div>
+        <script>
+        window.addEventListener('scroll', function() {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (scrollTop > 300) {
+                document.querySelector('.scrollToTop').style.opacity = 1;
+            } else {
+                document.querySelector('.scrollToTop').style.opacity = 0;
+            }
+        })
+        </script>
+    </div>
     <script src="../../scripts/lib/jquery-2.2.1.min.js"></script>
     <script src="../../scripts/lib/jquery.twbsPagination.min.js"></script>
     <script src="../../scripts/lib/artdialog/dist/dialog-plus-min.js"></script>
@@ -441,9 +457,30 @@
         });
 
         //搜索排序规则切换
-        $('.filter-rule-sequence').find('.btn').on('click',function(){
+        $('.filter-rule-sequence').find('.btn').on('click', function() {
             $(this).addClass('on').siblings('.btn').removeClass('on');
-        })
+        });
+
+        //固定表头
+        (function() {
+            var $target = $('.js-data-head-fixed'),
+                t_top = $target.offset().top;
+            parentPaddingTop = $target.parent().css('paddingTop'),
+                $(window).on('scroll', function() {
+                    var w_top = document.body.scrollTop || document.documentElement.scrollTop;
+                    if (w_top > t_top) {
+                        $target.css({
+                            position: 'fixed',
+                            top: '1px',
+                            width: $target.parent().width()
+                        }).parent().css('paddingTop', '65px');
+                    } else {
+                        $target.removeAttr('style').parent().css('paddingTop', parentPaddingTop);
+                    }
+                }).on('resize', function() {
+                    $target.width($target.parent().width());
+                })
+        })();
 
         //分页
         $('#pagination').twbsPagination({

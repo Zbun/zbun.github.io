@@ -217,7 +217,7 @@
                         <button class="btn btn-primary">
                             <span>+ </span>新增型号
                         </button>
-                        <table class="table table-bordered table-radian text-center mt10">
+                        <table class="table table-bordered table-radian text-center mt10 speclist">
                             <thead>
                                 <tr>
                                     <th>名称</th>
@@ -228,9 +228,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" placeholder='输入商品名称'><span class="field-validation-error">*必填项</span></td>
-                                    <td><input type="text" class='ipt-s' placeholder='商品价格'></td>
-                                    <td><input type="text" class='ipt-s' placeholder='库存量'></td>
+                                    <td><div class="ipt-wrapper"><input type="text" placeholder='输入商品名称'><span class="field-validation-error">*必填项</span></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='商品价格'></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='库存量'></div></td>
+                                    <td><div class='action-field'><a class='item' href='javascript:;'>删除</a></div></td>
+                                </tr> 
+                                <tr>
+                                    <td><div class="ipt-wrapper"><input type="text" placeholder='输入商品名称'><span class="field-validation-error">*必填项</span></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='商品价格'><span class="field-validation-error">*价格须最多只有两们小数</span></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='库存量'></div></td>
+                                    <td><div class='action-field'><a class='item' href='javascript:;'>删除</a></div></td>
+                                </tr> 
+                                <tr>
+                                    <td><div class="ipt-wrapper"><input type="text" placeholder='输入商品名称'></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='商品价格'></div></td>
+                                    <td><div class="ipt-wrapper"><input type="text" class='ipt-s' placeholder='库存量'></div></td>
                                     <td><div class='action-field'><a class='item' href='javascript:;'>删除</a></div></td>
                                 </tr>
                             </tbody>

@@ -118,7 +118,7 @@
                     订单商品信息
                 </h3>
                 <div class="content">
-                    <div class="pic-list">
+                    <div class="pic-list" id='goodsShow'>
                         <a href="javascript:;" class="item">
                             <div class="inner"><img class="" src="" alt="商品图">
                                 <div class="content">
@@ -277,6 +277,17 @@
         $t.closest('.addresses').children('.detail').html($t.find('.detail').html());
         $t.find('input[type=radio]').prop('checked', true);
     })
+
+document.querySelector('#goodsShow').querySelector('.item').addEventListener('touchstart', function(e){
+        startX=e.touches[0].clientX;
+    })
+
+     document.querySelector('#goodsShow').querySelector('.item').addEventListener('touchmove', function(e){
+        console.log(startX);
+        // console.log(e.touches[0].clientX)
+        this.style.transform='translateX(-'+(e.touches[0].clientX-startX)+'px)';
+    })
+
     </script>
 </body>
 
